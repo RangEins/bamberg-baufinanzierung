@@ -1,23 +1,47 @@
 /**
  * Zentraler Content-Store für die Baufinanzierung-Bamberg-Seite.
  * Alle Texte hier hinterlegen, damit Komponenten textfrei bleiben.
+ *
+ * Markenpolitik: "Baufinanzierung Bamberg" ist die sichtbare Marke der Seite.
+ * Die juristische Entität (Frankenbaufi GmbH) wird ausschließlich im
+ * Impressum/Datenschutz genannt – nicht im sichtbaren Marketing-Content.
  */
 
 export const SITE = {
+  /** Sichtbare Marke der Seite */
   name: 'Baufinanzierung Bamberg',
-  brand: 'Frankenbaufi',
+  brand: 'Baufinanzierung Bamberg',
+  brandShort: 'Bamberg',
+  brandTagline: 'Baufinanzierung',
+
   domain: 'bamberg-baufinanzierung.de',
   url: 'https://bamberg-baufinanzierung.de',
-  email: 'angebot@frankenbaufi.de',
+
+  /** Kontakt – sichtbar auf der Seite */
+  email: 'altemeier@frankenbaufi.de',
   phone: '09131 6238530',
   phoneTel: '+4991316238530',
-  advisor: 'Christoph',
-  parent: 'frankenbaufi.de',
+  mobile: '0160 7325514',
+  mobileTel: '+491607325514',
+
   city: 'Bamberg',
   region: 'Landkreis Bamberg',
   state: 'Bayern',
+
   description:
     'Unabhängige Baufinanzierung für Bamberg und den Landkreis Bamberg. 600+ Banken im Vergleich, 25 Jahre Erfahrung in Franken. Kostenlose Erstberatung.',
+
+  /** Juristische Entität – NUR Impressum/Datenschutz/Schema */
+  legalEntity: {
+    name: 'Frankenbaufi GmbH',
+    street: 'Wetterkreuz 27',
+    zip: '91058',
+    city: 'Erlangen',
+    country: 'DE',
+    register: 'HRB 10737',
+    registerCourt: 'Amtsgericht Bamberg',
+    representative: 'Christoph Altemeier',
+  },
 } as const;
 
 export const NAV_ITEMS = [
@@ -33,10 +57,10 @@ export const HERO = {
   headline: 'Ihre Baufinanzierung für Bamberg.',
   headlineAccent: 'Persönlich. Unabhängig. Kostenfrei.',
   subtitle:
-    'Wir vergleichen über 600 Banken für Sie – von der Welterbe-Altstadt bis Hirschaid, Hallstadt und Memmelsdorf. 25 Jahre Erfahrung in Franken, persönlich begleitet durch Christoph.',
+    'Wir vergleichen über 600 Banken für Sie – von der Welterbe-Altstadt bis Hirschaid, Hallstadt und Memmelsdorf. 25 Jahre Marktkenntnis in Franken, jede Anfrage wird persönlich beantwortet.',
   trustBadges: [
     '600+ Banken im Vergleich',
-    '25 Jahre Erfahrung',
+    '25 Jahre Markterfahrung',
     'Antwort in 24 Stunden',
   ],
   cta: 'Kostenlose Erstberatung anfragen',
@@ -62,7 +86,7 @@ export const STATS_ITEMS = [
   {
     value: '24 h',
     label: 'Antwortzeit',
-    detail: 'persönlich von Christoph',
+    detail: 'persönliche Rückmeldung',
   },
 ] as const;
 
@@ -70,42 +94,42 @@ export const COMPARISON_ROWS = [
   {
     feature: 'Anzahl verglichener Banken',
     hausbank: 'Nur eigene Produkte',
-    frankenbaufi: 'Über 600 Banken im Vergleich',
+    us: 'Über 600 Banken im Vergleich',
   },
   {
     feature: 'Beratungsgebühr',
     hausbank: 'Im Produkt eingepreist',
-    frankenbaufi: 'Kostenlos für Sie',
+    us: 'Kostenlos für Sie',
   },
   {
     feature: 'Regionale Marktkenntnis',
     hausbank: 'Generische Bewertung',
-    frankenbaufi: 'Bamberg und Landkreis seit 2001',
+    us: 'Bamberg und Landkreis seit 2001',
   },
   {
     feature: 'KfW- & BAFA-Förderprüfung',
     hausbank: 'Häufig nicht vollständig',
-    frankenbaufi: 'Standard im Erstgespräch',
+    us: 'Standard im Erstgespräch',
   },
   {
     feature: 'Denkmalschutz-Expertise',
     hausbank: 'Spezialfall, oft Auslagerung',
-    frankenbaufi: 'KfW 297/298 + §7i EStG vertraut',
+    us: 'KfW 297/298 + §7i EStG vertraut',
   },
   {
     feature: 'Forward-Darlehen Vergleich',
     hausbank: 'Eigene Kondition',
-    frankenbaufi: 'Marktweiter Vergleich',
+    us: 'Marktweiter Vergleich',
   },
   {
     feature: 'Persönlicher Ansprechpartner',
     hausbank: 'Wechselnde Berater',
-    frankenbaufi: 'Christoph – ein Ansprechpartner',
+    us: 'Ein fester Ansprechpartner',
   },
   {
     feature: 'Antwortzeit auf Erstanfrage',
     hausbank: 'Mehrere Tage üblich',
-    frankenbaufi: 'Innerhalb von 24 Stunden',
+    us: 'Innerhalb von 24 Stunden',
   },
 ] as const;
 
@@ -182,21 +206,9 @@ export const MARKET_DATA_STADT = {
   title: 'Stadt Bamberg',
   asOf: 'Stand Mai 2026',
   rows: [
-    {
-      segment: 'Häuser',
-      avg: '~4.150 €/m²',
-      range: '2.970 – 5.280 €/m²',
-    },
-    {
-      segment: 'Eigentumswohnungen',
-      avg: '~3.600 €/m²',
-      range: '1.900 – 6.985 €/m²',
-    },
-    {
-      segment: 'Gesamtdurchschnitt',
-      avg: '~3.690 €/m²',
-      range: '–',
-    },
+    { segment: 'Häuser', avg: '~4.150 €/m²', range: '2.970 – 5.280 €/m²' },
+    { segment: 'Eigentumswohnungen', avg: '~3.600 €/m²', range: '1.900 – 6.985 €/m²' },
+    { segment: 'Gesamtdurchschnitt', avg: '~3.690 €/m²', range: '–' },
   ],
   highlights: [
     'Teuerster Stadtteil: Wildensorg (~3.886 €/m²)',
@@ -319,7 +331,7 @@ export const FAQ_ITEMS = [
   {
     question: 'Wie schnell bekomme ich eine Rückmeldung?',
     answer:
-      'Innerhalb von 24 Stunden meldet sich Christoph persönlich – per Telefon oder E-Mail, ganz wie Sie es wünschen. Erstgespräch und konkreter Konditionsvergleich sind innerhalb einer Woche möglich.',
+      'Innerhalb von 24 Stunden melden wir uns persönlich – per Telefon oder E-Mail, ganz wie Sie es wünschen. Erstgespräch und konkreter Konditionsvergleich sind innerhalb einer Woche möglich.',
   },
   {
     question: 'Beraten Sie auch im Landkreis Bamberg?',
@@ -352,9 +364,9 @@ export const FAQ_ITEMS = [
       'Lagarde, Pines, Offizierssiedlung – das sind oft Neubauten mit KfW-40-Standard oder besser, also mit attraktiven Förderkonditionen. Bei Bauträger-Modellen gibt es Spezifika (Kaufpreisraten nach MaBV, Fertigstellungsbürgschaft, Eintragung im Grundbuch), die wir gemeinsam durchgehen.',
   },
   {
-    question: 'Wie ist Frankenbaufi entstanden?',
+    question: 'Wer steht hinter dieser Beratung?',
     answer:
-      'Frankenbaufi ist die Marke des unabhängigen Baufinanzierungsberaters Christoph mit 25 Jahren Erfahrung in der Region. Standort-Sites in Forchheim, Erlangen, Herzogenaurach und Bamberg sorgen dafür, dass jede Region ihren eigenen Ansprechpartner hat. Mutterseite ist frankenbaufi.de.',
+      'Hinter Baufinanzierung Bamberg steht ein unabhängiger Vermittler mit 25 Jahren Markterfahrung in Franken. Sie haben einen festen Ansprechpartner über die gesamte Laufzeit – vom Erstgespräch über den Notartermin bis zur Auszahlung. Die rechtlichen Anbieterangaben finden Sie im Impressum.',
   },
 ] as const;
 
@@ -362,7 +374,7 @@ export const MIDPAGE_CTA = {
   eyebrow: 'Konkreter Vergleich in 24 Stunden',
   headline: 'Wir vergleichen für Sie. Sie sparen Zinsen.',
   subline:
-    'Schildern Sie uns Ihr Vorhaben – Hauskauf, Anschluss oder Modernisierung. Christoph meldet sich persönlich, mit einem ersten konkreten Konditionsbild für den Bamberger Markt.',
+    'Schildern Sie uns Ihr Vorhaben – Hauskauf, Anschluss oder Modernisierung. Wir melden uns persönlich mit einem ersten konkreten Konditionsbild für den Bamberger Markt.',
   cta: 'Jetzt unverbindlich anfragen',
 } as const;
 
@@ -403,7 +415,6 @@ export const FOOTER_LINKS = {
     { label: 'FAQ', href: '#faq' },
     { label: 'Impressum', href: '/impressum' },
     { label: 'Datenschutz', href: '/datenschutz' },
-    { label: 'Mutterseite frankenbaufi.de', href: 'https://frankenbaufi.de', external: true },
   ],
 } as const;
 

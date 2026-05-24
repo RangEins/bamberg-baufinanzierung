@@ -1,18 +1,17 @@
-# Baufinanzierung Bamberg – Frankenbaufi
+# Baufinanzierung Bamberg
 
-> Unabhängiger Baufinanzierungsberater für Bamberg und den Landkreis Bamberg. Über 600 Banken im Vergleich, kostenlos für den Kunden, 25 Jahre Marktkenntnis in Franken. Persönlich begleitet durch Christoph.
+> Unabhängige Baufinanzierung für Bamberg und den Landkreis Bamberg. Über 600 Banken im Vergleich, kostenlos für den Kunden, 25 Jahre Marktkenntnis in Franken. Persönlicher Ansprechpartner über die gesamte Laufzeit.
 
 ## Über
 
-- **Anbieter:** Frankenbaufi (Christoph)
+- **Marke:** Baufinanzierung Bamberg
 - **Standort:** Bamberg + Landkreis Bamberg
 - **Bundesland:** Bayern (Oberfranken)
-- **Kontakt:** angebot@frankenbaufi.de · 09131 6238530
-- **Hauptdomain:** bamberg-baufinanzierung.de
-- **Mutterseite:** frankenbaufi.de
-- **Schwester-Standorte:** baufinanzierung-forchheim.de · baufinanzierung-erlangen.de · baufinanzierung-herzogenaurach.de
-- **Tech-Stack:** Astro 6.3 (statischer Build, deployed auf Vercel)
+- **Domain:** bamberg-baufinanzierung.de
+- **Kontakt:** altemeier@frankenbaufi.de · Telefon 09131 6238530 · Mobil 0160 7325514
 - **Antwortzeit:** persönlich innerhalb von 24 Stunden
+- **Juristische Anbieterangaben:** siehe /impressum
+- **Tech-Stack:** Astro 6.3 (statisch, deployed auf Vercel)
 
 ## Leistungen
 
@@ -93,10 +92,10 @@ Erweitertes Einzugsgebiet: weitere Gemeinden im Landkreis Bamberg sowie angrenze
 ## Schema / strukturierte Daten
 
 Die Seite stellt folgende strukturierte Daten bereit (JSON-LD):
-- `FinancialService` (LocalBusiness mit areaServed für Bamberg, Landkreis, Oberfranken + alle Landkreis-Gemeinden)
+- `FinancialService` (LocalBusiness mit areaServed für Bamberg, Landkreis, Oberfranken + alle Landkreis-Gemeinden; legalName = Frankenbaufi GmbH)
 - `Service` (Baufinanzierungsvermittlung)
-- `FAQPage` (alle 10 FAQ-Items maschinenlesbar)
-- `Organization` (Frankenbaufi als Parent)
+- `FAQPage` (alle FAQ-Items maschinenlesbar)
+- `Organization`
 - `WebSite`
 
 ## Tonalität & Marke
@@ -104,5 +103,4 @@ Die Seite stellt folgende strukturierte Daten bereit (JSON-LD):
 - Sie-Form, sachlich, regional, ohne Übertreibungen
 - Zahlen statt Adjektive ("600+ Banken", nicht "viele Banken")
 - Keine konkreten Zinssätze auf der Seite (Compliance)
-- Eine Person als Berater: Christoph
-- Design: Navy + Gold, Fraunces (Display) + Inter (Body)
+- Design: Navy + Gold, Fraunces (Display) + Inter (Body), beide selbst gehostet

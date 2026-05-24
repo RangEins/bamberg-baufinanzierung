@@ -2,8 +2,10 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { SITE } from '@/lib/content';
 
+const { legalEntity } = SITE;
+
 const title = 'Datenschutzerklärung | Baufinanzierung Bamberg';
-const description = 'Datenschutzerklärung für bamberg-baufinanzierung.de gemäß DSGVO. Welche Daten wir erheben, wie wir sie verarbeiten und Ihre Rechte als Betroffener.';
+const description = 'Datenschutzerklärung für bamberg-baufinanzierung.de gemäß DSGVO und BDSG. Welche Daten wir erheben, wie wir sie verarbeiten und Ihre Rechte als Betroffener.';
 ---
 
 <BaseLayout
@@ -16,88 +18,196 @@ const description = 'Datenschutzerklärung für bamberg-baufinanzierung.de gemä
     <div class="container-content max-w-3xl">
       <p class="text-sm font-semibold uppercase tracking-wider text-gold-700">Rechtliches</p>
       <h1 class="mt-3 font-display text-4xl text-navy-950 sm:text-5xl">Datenschutzerklärung</h1>
+      <p class="mt-4 text-sm text-ink-muted">Stand: Mai 2026</p>
 
-      <div class="mt-10 space-y-8 text-ink-soft">
+      <div class="mt-10 space-y-10 text-ink-soft">
         <section>
-          <h2 class="font-display text-xl text-navy-950">1. Verantwortlicher</h2>
+          <h2 class="font-display text-2xl text-navy-950">1. Verantwortlicher</h2>
           <p class="mt-3">
-            Verantwortlich für die Datenverarbeitung auf dieser Website im Sinne der
-            Datenschutz-Grundverordnung (DSGVO) ist:
+            Verantwortlicher im Sinne der Datenschutz-Grundverordnung (DSGVO) sowie weiterer
+            nationaler Datenschutzgesetze der Mitgliedsstaaten und sonstiger
+            datenschutzrechtlicher Bestimmungen ist:
           </p>
-          <p class="mt-3">
-            {SITE.brand} – Standort Bamberg<br />
-            Christoph Müller<br />
-            [Anschrift einfügen], 96047 Bamberg<br />
-            E-Mail: <a href={`mailto:${SITE.email}`} class="text-navy-900 underline hover:text-gold-700">{SITE.email}</a><br />
-            Telefon: <a href={`tel:${SITE.phoneTel}`} class="text-navy-900 underline hover:text-gold-700">{SITE.phone}</a>
-          </p>
-        </section>
-
-        <section>
-          <h2 class="font-display text-xl text-navy-950">2. Erhebung allgemeiner Zugriffsdaten</h2>
-          <p class="mt-3">
-            Beim Aufrufen unserer Website werden durch unseren Hosting-Provider (Vercel Inc., USA)
-            automatisch Informationen in sogenannten Server-Log-Files gespeichert. Dies sind:
-            Browsertyp und -version, verwendetes Betriebssystem, Referrer URL, Hostname des
-            zugreifenden Rechners, Uhrzeit der Serveranfrage sowie IP-Adresse (anonymisiert).
-            Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO – berechtigtes Interesse an stabiler
-            und sicherer Bereitstellung der Website.
+          <p class="mt-4 rounded-md bg-white px-5 py-4 ring-1 ring-navy-100">
+            {legalEntity.name}<br />
+            {legalEntity.street}<br />
+            {legalEntity.zip} {legalEntity.city}<br /><br />
+            Vertreten durch: {legalEntity.representative}<br />
+            Handelsregister: {legalEntity.register} ({legalEntity.registerCourt})<br /><br />
+            Telefon: <a href={`tel:${SITE.phoneTel}`} class="text-navy-900 underline hover:text-gold-700">{SITE.phone}</a><br />
+            Mobil: <a href={`tel:${SITE.mobileTel}`} class="text-navy-900 underline hover:text-gold-700">{SITE.mobile}</a><br />
+            E-Mail: <a href={`mailto:${SITE.email}`} class="text-navy-900 underline hover:text-gold-700">{SITE.email}</a>
           </p>
         </section>
 
         <section>
-          <h2 class="font-display text-xl text-navy-950">3. Kontakt &amp; Lead-Wizard</h2>
+          <h2 class="font-display text-2xl text-navy-950">2. Allgemeine Hinweise</h2>
+          <p class="mt-3">
+            Wir nehmen den Schutz Ihrer personenbezogenen Daten sehr ernst. Wir behandeln Ihre
+            personenbezogenen Daten vertraulich und entsprechend der gesetzlichen
+            Datenschutzvorschriften (insbesondere DSGVO, BDSG, TTDSG) sowie dieser
+            Datenschutzerklärung.
+          </p>
+          <p class="mt-3">
+            Personenbezogene Daten sind alle Daten, die auf Sie persönlich beziehbar sind,
+            z.&nbsp;B. Name, Adresse, E-Mail-Adressen, Telefonnummer oder Nutzerverhalten.
+          </p>
+          <p class="mt-3">
+            Die Nutzung unserer Website ist in der Regel ohne Angabe personenbezogener Daten
+            möglich. Soweit auf unseren Seiten personenbezogene Daten erhoben werden, erfolgt
+            dies, soweit möglich, stets auf freiwilliger Basis. Diese Daten werden ohne Ihre
+            ausdrückliche Zustimmung nicht an Dritte weitergegeben.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-display text-2xl text-navy-950">3. Hosting durch Vercel</h2>
+          <p class="mt-3">
+            Diese Website wird durch die Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789,
+            USA, gehostet („Vercel"). Beim Aufruf der Website werden technisch zwingend
+            erforderliche Daten verarbeitet, insbesondere:
+          </p>
+          <ul class="mt-3 list-disc space-y-1 pl-6">
+            <li>IP-Adresse des anfragenden Endgeräts</li>
+            <li>Datum und Uhrzeit der Anfrage</li>
+            <li>Inhalt der Anforderung (konkrete Seite)</li>
+            <li>HTTP-Statuscode</li>
+            <li>Übertragene Datenmenge</li>
+            <li>Browser-Typ und -Version, Betriebssystem</li>
+            <li>Referrer URL (zuvor besuchte Seite)</li>
+          </ul>
+          <p class="mt-3">
+            Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO. Unser berechtigtes Interesse liegt in
+            der technisch fehlerfreien, sicheren und performanten Bereitstellung der Website.
+          </p>
+          <p class="mt-3">
+            Mit Vercel besteht ein Auftragsverarbeitungsvertrag (AVV) gemäß Art. 28 DSGVO. Die
+            Datenübermittlung in die USA erfolgt auf Grundlage des EU-U.S. Data Privacy Framework
+            sowie der EU-Standardvertragsklauseln. Weitere Informationen:{' '}
+            <a
+              href="https://vercel.com/legal/privacy-policy"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-navy-900 underline hover:text-gold-700"
+            >
+              vercel.com/legal/privacy-policy
+            </a>.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-display text-2xl text-navy-950">
+            4. Kontaktaufnahme &amp; Anfrage-Formular
+          </h2>
           <p class="mt-3">
             Wenn Sie uns über das Anfrage-Formular (Lead-Wizard) oder per E-Mail kontaktieren,
-            verarbeiten wir die übermittelten Daten (Name, E-Mail-Adresse, Telefonnummer, Ort,
-            Vorhaben, Finanzierungssumme, Eigenkapital, Nachricht) ausschließlich zur Bearbeitung
-            Ihrer Anfrage und zur Vorbereitung einer Erstberatung. Rechtsgrundlage ist
-            Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen) bzw. Art. 6 Abs. 1 lit. a DSGVO
-            (Einwilligung).
+            verarbeiten wir die übermittelten Daten zur Bearbeitung Ihrer Anfrage und für den
+            Fall, dass sich Anschlussfragen ergeben. Konkret verarbeiten wir:
+          </p>
+          <ul class="mt-3 list-disc space-y-1 pl-6">
+            <li>Name</li>
+            <li>E-Mail-Adresse</li>
+            <li>Telefonnummer (optional)</li>
+            <li>Ort (optional)</li>
+            <li>Art Ihres Vorhabens (Hauskauf, Anschluss, Modernisierung u.&nbsp;a.)</li>
+            <li>Finanzierungssumme und Eigenkapital (Größenordnung)</li>
+            <li>Freitext-Nachricht (optional)</li>
+          </ul>
+          <p class="mt-3">
+            <strong class="text-navy-950">Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO
+            (vorvertragliche Maßnahmen) sowie Art. 6 Abs. 1 lit. a DSGVO (Einwilligung über die
+            verpflichtende Checkbox im Formular).
           </p>
           <p class="mt-3">
-            Die Übermittlung erfolgt über den Drittanbieter <strong>FormSubmit</strong> (Formsubmit.co),
-            der die Daten verschlüsselt an unsere E-Mail-Adresse {SITE.email} weiterleitet. Eine
-            dauerhafte Speicherung Ihrer Daten bei FormSubmit findet nicht statt. Anschließend
-            speichern wir Ihre Anfrage in unserem CRM-System für die Dauer der Geschäftsbeziehung
-            sowie gesetzliche Aufbewahrungsfristen.
+            <strong class="text-navy-950">Übermittlung:</strong> Die Übertragung Ihrer Anfrage
+            erfolgt verschlüsselt (TLS) über den Drittanbieter <strong>FormSubmit</strong> (Formsubmit,
+            Toronto, Kanada). FormSubmit leitet die Daten unverzüglich an unsere E-Mail-Adresse
+            ({SITE.email}) weiter. Eine dauerhafte Speicherung Ihrer Daten bei FormSubmit findet
+            nicht statt. Die Übermittlung nach Kanada erfolgt auf Grundlage des Angemessenheits&shy;beschlusses
+            der EU-Kommission für Kanada.{' '}
+            <a
+              href="https://formsubmit.co/privacy.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-navy-900 underline hover:text-gold-700"
+            >
+              Datenschutz FormSubmit
+            </a>.
+          </p>
+          <p class="mt-3">
+            <strong class="text-navy-950">Speicherdauer:</strong> Anfragen werden so lange
+            gespeichert, wie es für die Bearbeitung Ihres Anliegens erforderlich ist. Bei
+            Zustandekommen eines Vertrages werden Ihre Daten entsprechend den gesetzlichen
+            Aufbewahrungsfristen (§ 257 HGB, § 147 AO) bis zu zehn Jahre aufbewahrt.
           </p>
         </section>
 
         <section>
-          <h2 class="font-display text-xl text-navy-950">4. Hosting auf Vercel</h2>
+          <h2 class="font-display text-2xl text-navy-950">5. Cookies &amp; lokaler Speicher</h2>
           <p class="mt-3">
-            Diese Website wird gehostet bei Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789,
-            USA. Vercel verarbeitet Daten in unserem Auftrag (Art. 28 DSGVO) – ein
-            Auftragsverarbeitungsvertrag ist abgeschlossen. Standardvertragsklauseln der
-            Europäischen Kommission sind hinterlegt. Mehr Informationen:
-            <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" class="text-navy-900 underline hover:text-gold-700">vercel.com/legal/privacy-policy</a>.
+            Unsere Website nutzt aktuell <strong class="text-navy-950">keine</strong>
+            Tracking-Cookies und keine Cookies, die Sie über mehrere Sitzungen hinweg
+            wiedererkennen.
+          </p>
+          <p class="mt-3">
+            Wir verwenden ausschließlich technisch notwendige Mechanismen:
+          </p>
+          <ul class="mt-3 list-disc space-y-1 pl-6">
+            <li>
+              <strong class="text-navy-950">Cookie-Banner-Entscheidung:</strong> Ihre Entscheidung
+              zum Cookie-Banner wird lokal in Ihrem Browser gespeichert (localStorage,
+              Schlüssel: <code class="rounded bg-cream-200 px-1 text-xs">bb-cookie-consent</code>),
+              damit der Banner bei wiederholten Besuchen nicht erneut erscheint.
+            </li>
+          </ul>
+          <p class="mt-3">
+            <strong class="text-navy-950">Rechtsgrundlage:</strong> § 25 Abs. 2 Nr. 2 TTDSG —
+            unbedingt erforderlich zur Bereitstellung eines vom Nutzer ausdrücklich gewünschten
+            Telemediendienstes.
           </p>
         </section>
 
         <section>
-          <h2 class="font-display text-xl text-navy-950">5. Cookies</h2>
+          <h2 class="font-display text-2xl text-navy-950">
+            6. Schriftarten (selbst gehostet)
+          </h2>
           <p class="mt-3">
-            Diese Website setzt grundsätzlich keine Tracking-Cookies. Sollten zukünftig
-            Analyse-Tools (z. B. Vercel Web Analytics in datenschutzkonformer Cookie-loser
-            Variante) eingesetzt werden, weisen wir hier transparent darauf hin und holen ggf.
-            Ihre Einwilligung über einen Consent-Banner ein.
+            Diese Website nutzt die Schriftarten „Inter" und „Fraunces", die wir lokal auf unserem
+            Server (bzw. dem CDN von Vercel) ausliefern. Es findet <strong class="text-navy-950">kein
+            externer Aufruf zu Google Fonts oder anderen Drittanbietern</strong> statt. Es werden
+            durch die Schriftauslieferung keine personenbezogenen Daten an Dritte übermittelt.
           </p>
         </section>
 
         <section>
-          <h2 class="font-display text-xl text-navy-950">6. Eingebundene Schriftarten (Google Fonts)</h2>
+          <h2 class="font-display text-2xl text-navy-950">7. Web-Analyse</h2>
           <p class="mt-3">
-            Diese Website nutzt die Schriftarten „Inter" und „Fraunces" über den Google Fonts
-            Dienst (Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland).
-            Beim Aufruf der Seite wird eine Verbindung zu Servern von Google aufgebaut, wodurch
-            Ihre IP-Adresse übermittelt wird. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO
-            (einheitliche und ansprechende Darstellung).
+            Diese Website setzt aktuell <strong class="text-navy-950">keine</strong>
+            Reichweitenmessung und keine Web-Analyse-Tools ein. Es findet weder durch Vercel Web
+            Analytics noch durch Drittanbieter (Google Analytics, Matomo o.&nbsp;ä.) eine
+            Auswertung des Nutzerverhaltens statt.
+          </p>
+          <p class="mt-3">
+            Sollten wir künftig Analyse-Werkzeuge einsetzen, weisen wir hier transparent darauf
+            hin und holen Ihre Einwilligung über den Cookie-Banner ein, bevor solche Werkzeuge
+            geladen werden.
           </p>
         </section>
 
         <section>
-          <h2 class="font-display text-xl text-navy-950">7. Ihre Rechte als betroffene Person</h2>
+          <h2 class="font-display text-2xl text-navy-950">8. SSL-/TLS-Verschlüsselung</h2>
+          <p class="mt-3">
+            Diese Seite nutzt aus Sicherheitsgründen und zum Schutz der Übertragung
+            vertraulicher Inhalte eine SSL- bzw. TLS-Verschlüsselung. Eine verschlüsselte
+            Verbindung erkennen Sie daran, dass die Adresszeile des Browsers von „http://" auf
+            „https://" wechselt und am Schloss-Symbol in Ihrer Browserzeile.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-display text-2xl text-navy-950">
+            9. Ihre Rechte als betroffene Person
+          </h2>
           <p class="mt-3">Sie haben jederzeit das Recht auf:</p>
           <ul class="mt-3 list-disc space-y-1 pl-6">
             <li>Auskunft über die zu Ihrer Person gespeicherten Daten (Art. 15 DSGVO)</li>
@@ -106,28 +216,46 @@ const description = 'Datenschutzerklärung für bamberg-baufinanzierung.de gemä
             <li>Einschränkung der Verarbeitung (Art. 18 DSGVO)</li>
             <li>Datenübertragbarkeit (Art. 20 DSGVO)</li>
             <li>Widerspruch gegen die Verarbeitung (Art. 21 DSGVO)</li>
-            <li>Widerruf einer erteilten Einwilligung (Art. 7 Abs. 3 DSGVO)</li>
+            <li>Widerruf einer erteilten Einwilligung mit Wirkung für die Zukunft (Art. 7 Abs. 3 DSGVO)</li>
             <li>Beschwerde bei einer Aufsichtsbehörde (Art. 77 DSGVO)</li>
           </ul>
           <p class="mt-3">
-            Zur Geltendmachung Ihrer Rechte genügt eine formlose Nachricht an {SITE.email}.
+            Zur Geltendmachung Ihrer Rechte genügt eine formlose Nachricht an{' '}
+            <a href={`mailto:${SITE.email}`} class="text-navy-900 underline hover:text-gold-700">{SITE.email}</a>.
           </p>
         </section>
 
         <section>
-          <h2 class="font-display text-xl text-navy-950">8. Beschwerderecht bei der Aufsichtsbehörde</h2>
+          <h2 class="font-display text-2xl text-navy-950">
+            10. Zuständige Aufsichtsbehörde
+          </h2>
           <p class="mt-3">
             Bayerisches Landesamt für Datenschutzaufsicht (BayLDA)<br />
             Promenade 18, 91522 Ansbach<br />
-            <a href="https://www.lda.bayern.de" target="_blank" rel="noopener noreferrer" class="text-navy-900 underline hover:text-gold-700">www.lda.bayern.de</a>
+            Telefon: 0981 180093-0<br />
+            E-Mail: poststelle@lda.bayern.de<br />
+            <a
+              href="https://www.lda.bayern.de"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-navy-900 underline hover:text-gold-700"
+            >
+              www.lda.bayern.de
+            </a>
           </p>
         </section>
 
-        <p class="border-t border-navy-100 pt-6 text-sm text-ink-muted">
-          Stand: Mai 2026 · Hinweis: Die mit eckigen Klammern markierten Felder sind vor
-          Live-Schaltung von Christoph zu befüllen. Bei Erweiterung des Tracking-Setups
-          (z. B. Google Analytics) ist eine Aktualisierung erforderlich.
-        </p>
+        <section>
+          <h2 class="font-display text-2xl text-navy-950">
+            11. Änderungen dieser Datenschutzerklärung
+          </h2>
+          <p class="mt-3">
+            Wir behalten uns vor, diese Datenschutzerklärung anzupassen, damit sie stets den
+            aktuellen rechtlichen Anforderungen entspricht oder Änderungen unserer Leistungen
+            in der Datenschutzerklärung umgesetzt werden, z.&nbsp;B. bei der Einführung neuer
+            Funktionen. Für Ihren erneuten Besuch gilt dann die neue Datenschutzerklärung.
+          </p>
+        </section>
       </div>
     </div>
   </article>

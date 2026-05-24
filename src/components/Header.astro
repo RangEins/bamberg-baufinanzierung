@@ -1,6 +1,7 @@
 ---
-import { Phone, Menu } from '@lucide/astro';
+import { Phone } from '@lucide/astro';
 import { SITE, NAV_ITEMS } from '@/lib/content';
+import Logo from '@/components/Logo.astro';
 ---
 
 <header
@@ -8,25 +9,20 @@ import { SITE, NAV_ITEMS } from '@/lib/content';
   class="fixed inset-x-0 top-0 z-40 transition-all duration-300"
   data-transparent="true"
 >
-  <div class="container-content flex items-center justify-between gap-6 py-4">
-    <a
-      href="/"
-      class="flex items-baseline gap-2 transition-opacity hover:opacity-80"
-      aria-label="Zur Startseite"
-    >
-      <span class="font-display text-xl font-semibold tracking-tight text-navy-950 site-header-brand">
-        {SITE.brand}
-      </span>
-      <span class="hidden text-sm font-medium text-ink-muted sm:inline site-header-region">
-        · Bamberg
-      </span>
-    </a>
+  <div class="container-content flex items-center justify-between gap-6 py-3 md:py-4">
+    <!-- Logo: tone wechselt via data-transparent -->
+    <div class="logo-dark">
+      <Logo variant="stacked" tone="dark" size="md" />
+    </div>
+    <div class="logo-light">
+      <Logo variant="stacked" tone="light" size="md" />
+    </div>
 
     <nav class="hidden items-center gap-8 lg:flex" aria-label="Hauptnavigation">
       {NAV_ITEMS.map((item) => (
         <a
           href={item.href}
-          class="text-sm font-medium text-ink-soft transition-colors hover:text-navy-950 site-header-nav-item"
+          class="text-sm font-medium transition-colors nav-link"
         >
           {item.label}
         </a>
@@ -36,7 +32,7 @@ import { SITE, NAV_ITEMS } from '@/lib/content';
     <div class="flex items-center gap-3">
       <a
         href={`tel:${SITE.phoneTel}`}
-        class="hidden items-center gap-2 text-sm font-medium text-ink-soft transition-colors hover:text-navy-950 sm:flex site-header-phone"
+        class="hidden items-center gap-2 text-sm font-medium transition-colors sm:flex phone-link"
         aria-label={`Anrufen ${SITE.phone}`}
       >
         <Phone class="size-4" />
@@ -44,7 +40,7 @@ import { SITE, NAV_ITEMS } from '@/lib/content';
       </a>
       <a
         href="#anfragen"
-        class="inline-flex items-center justify-center rounded-md bg-gold-500 px-4 py-2.5 text-sm font-semibold text-navy-950 shadow-sm transition-all hover:bg-gold-600 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-300 focus-visible:ring-offset-2"
+        class="inline-flex items-center justify-center rounded-md bg-gold-500 px-4 py-2.5 text-sm font-semibold text-navy-950 shadow-sm transition-all hover:bg-gold-400 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-300 focus-visible:ring-offset-2"
       >
         Beratung anfragen
       </a>
@@ -53,15 +49,46 @@ import { SITE, NAV_ITEMS } from '@/lib/content';
 </header>
 
 <style>
+  /* Transparent (über dunklem Hero) → helle Texte und helles Logo */
   #site-header[data-transparent="true"] {
     background-color: transparent;
     backdrop-filter: none;
   }
+  #site-header[data-transparent="true"] .logo-dark { display: none; }
+  #site-header[data-transparent="true"] .logo-light { display: block; }
+  #site-header[data-transparent="true"] .nav-link {
+    color: rgb(245 239 226 / 0.85);
+  }
+  #site-header[data-transparent="true"] .nav-link:hover {
+    color: rgb(232 199 122);
+  }
+  #site-header[data-transparent="true"] .phone-link {
+    color: rgb(245 239 226 / 0.85);
+  }
+  #site-header[data-transparent="true"] .phone-link:hover {
+    color: rgb(232 199 122);
+  }
+
+  /* Scrolled (über Cream) → dunkle Texte und dunkles Logo */
   #site-header[data-transparent="false"] {
-    background-color: rgb(251 248 241 / 0.92);
-    backdrop-filter: saturate(180%) blur(12px);
-    border-bottom: 1px solid rgb(20 32 54 / 0.06);
+    background-color: rgb(251 248 241 / 0.94);
+    backdrop-filter: saturate(180%) blur(14px);
+    border-bottom: 1px solid rgb(20 32 54 / 0.08);
     box-shadow: 0 1px 0 rgb(20 32 54 / 0.02);
+  }
+  #site-header[data-transparent="false"] .logo-dark { display: block; }
+  #site-header[data-transparent="false"] .logo-light { display: none; }
+  #site-header[data-transparent="false"] .nav-link {
+    color: rgb(44 58 80);
+  }
+  #site-header[data-transparent="false"] .nav-link:hover {
+    color: rgb(20 32 54);
+  }
+  #site-header[data-transparent="false"] .phone-link {
+    color: rgb(44 58 80);
+  }
+  #site-header[data-transparent="false"] .phone-link:hover {
+    color: rgb(20 32 54);
   }
 </style>
 

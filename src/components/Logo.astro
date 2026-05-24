@@ -1,0 +1,77 @@
+---
+/**
+ * Eigenständige Wortmarke "Baufinanzierung Bamberg".
+ *
+ * Mark: serifenbetontes "B" in Goldquadrat, kleiner Standortpunkt unten rechts.
+ * Wordmark: zweizeilig stacked (kompakt) oder einzeilig (footer-fähig).
+ *
+ * Light- und Dark-Variante über die Property `tone`.
+ */
+
+interface Props {
+  variant?: 'stacked' | 'inline';
+  tone?: 'dark' | 'light';
+  size?: 'sm' | 'md' | 'lg';
+  withLink?: boolean;
+  class?: string;
+}
+
+const {
+  variant = 'stacked',
+  tone = 'dark',
+  size = 'md',
+  withLink = true,
+  class: className = '',
+} = Astro.props;
+
+const markSize = { sm: 30, md: 38, lg: 46 }[size];
+const labelTop = { sm: 'text-[10px]', md: 'text-xs', lg: 'text-sm' }[size];
+const labelMain = { sm: 'text-base', md: 'text-lg', lg: 'text-xl' }[size];
+
+const labelColor = tone === 'dark' ? 'text-navy-950' : 'text-cream-50';
+const labelMuted = tone === 'dark' ? 'text-ink-muted' : 'text-cream-100/70';
+
+const Wrapper = withLink ? 'a' : 'div';
+---
+
+<Wrapper
+  {...withLink ? { href: '/', 'aria-label': 'Baufinanzierung Bamberg – zur Startseite' } : {}}
+  class={`group inline-flex items-center gap-3 ${withLink ? 'transition-opacity hover:opacity-90' : ''} ${className}`}
+>
+  <!-- Mark -->
+  <svg
+    width={markSize}
+    height={markSize}
+    viewBox="0 0 40 40"
+    xmlns="http://www.w3.org/2000/svg"
+    aria-hidden="true"
+    class="shrink-0"
+  >
+    <rect width="40" height="40" rx="8" fill="#C9A646" />
+    <!-- Serifenbetontes B in Navy -->
+    <path
+      d="M11 9 H22.3 C25.6 9 27.7 11 27.7 14 C27.7 15.7 26.9 16.9 25.4 17.6 C27.4 18.2 28.6 19.8 28.6 22.2 C28.6 25.4 26.4 27.5 22.8 27.5 H11 Z M14.7 12.2 V17.4 H21 C22.7 17.4 23.7 16.4 23.7 14.8 C23.7 13.2 22.7 12.2 21 12.2 Z M14.7 20.4 V24.3 H22.1 C23.9 24.3 25 23.3 25 21.7 C25 20.1 23.9 19.1 22.1 19.1 H14.7 Z"
+      fill="#0A1424"
+    />
+    <!-- Standortpunkt rechts unten -->
+    <circle cx="33" cy="33" r="3.2" fill="#0A1424" />
+    <circle cx="33" cy="33" r="1.4" fill="#C9A646" />
+  </svg>
+
+  {variant === 'stacked' && (
+    <div class="leading-none">
+      <div class={`font-body font-medium uppercase tracking-[0.18em] ${labelTop} ${labelMuted}`}>
+        Baufinanzierung
+      </div>
+      <div class={`mt-1 font-display ${labelMain} font-semibold tracking-tight ${labelColor}`}>
+        Bamberg
+      </div>
+    </div>
+  )}
+
+  {variant === 'inline' && (
+    <span class={`font-display ${labelMain} font-semibold tracking-tight ${labelColor}`}>
+      Baufinanzierung&nbsp;<span class={tone === 'dark' ? 'text-gold-700' : 'text-gold-400'}>Bamberg</span>
+    </span>
+  )}
+</Wrapper>

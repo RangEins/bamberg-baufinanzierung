@@ -169,7 +169,7 @@ export function LeadWizard() {
           </div>
           <h3 className="mt-6 font-display text-2xl text-navy-950">Vielen Dank für Ihre Anfrage.</h3>
           <p className="mt-3 text-ink-soft">
-            Christoph meldet sich innerhalb von 24 Stunden persönlich – per E-Mail oder telefonisch,
+            Wir melden uns innerhalb von 24 Stunden persönlich – per E-Mail oder telefonisch,
             ganz wie Sie es wünschen.
           </p>
           <a
@@ -364,7 +364,7 @@ export function LeadWizard() {
                   Wie können wir Sie erreichen?
                 </legend>
                 <p className="mt-1.5 text-sm text-ink-muted">
-                  Christoph meldet sich innerhalb von 24 Stunden persönlich.
+                  Wir melden uns innerhalb von 24 Stunden persönlich.
                 </p>
                 <div className="mt-5 space-y-3">
                   <div className="relative">

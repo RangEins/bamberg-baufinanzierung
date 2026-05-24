@@ -2,6 +2,8 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { SITE } from '@/lib/content';
 
+const { legalEntity } = SITE;
+
 const title = 'Impressum | Baufinanzierung Bamberg';
 const description = 'Impressum und Anbieterkennzeichnung gemäß § 5 TMG für bamberg-baufinanzierung.de.';
 ---
@@ -21,83 +23,127 @@ const description = 'Impressum und Anbieterkennzeichnung gemäß § 5 TMG für b
         <section>
           <h2 class="font-display text-xl text-navy-950">Angaben gemäß § 5 TMG</h2>
           <p class="mt-3">
-            {SITE.brand} – Standort Bamberg<br />
-            Christoph Müller<br />
-            [Anschrift Bamberg-Büro einfügen]<br />
-            96047 Bamberg<br />
-            Deutschland
+            {legalEntity.name}<br />
+            {legalEntity.street}<br />
+            {legalEntity.zip} {legalEntity.city}
+          </p>
+          <p class="mt-3">
+            <strong class="text-navy-950">Handelsregister:</strong> {legalEntity.register}<br />
+            <strong class="text-navy-950">Registergericht:</strong> {legalEntity.registerCourt}
+          </p>
+          <p class="mt-3">
+            <strong class="text-navy-950">Vertreten durch den Geschäftsführer:</strong><br />
+            {legalEntity.representative}
           </p>
         </section>
 
         <section>
           <h2 class="font-display text-xl text-navy-950">Kontakt</h2>
           <p class="mt-3">
-            Telefon: <a href={`tel:${SITE.phoneTel}`} class="text-navy-900 underline hover:text-gold-700">{SITE.phone}</a><br />
-            E-Mail: <a href={`mailto:${SITE.email}`} class="text-navy-900 underline hover:text-gold-700">{SITE.email}</a>
+            <strong class="text-navy-950">Telefon:</strong>{' '}
+            <a href={`tel:${SITE.phoneTel}`} class="text-navy-900 underline hover:text-gold-700">{SITE.phone}</a><br />
+            <strong class="text-navy-950">Mobil:</strong>{' '}
+            <a href={`tel:${SITE.mobileTel}`} class="text-navy-900 underline hover:text-gold-700">{SITE.mobile}</a><br />
+            <strong class="text-navy-950">E-Mail:</strong>{' '}
+            <a href={`mailto:${SITE.email}`} class="text-navy-900 underline hover:text-gold-700">{SITE.email}</a>
           </p>
         </section>
 
         <section>
-          <h2 class="font-display text-xl text-navy-950">Aufsichtsbehörde &amp; Erlaubnis</h2>
+          <h2 class="font-display text-xl text-navy-950">
+            Aufsichtsbehörde &amp; Erlaubnis nach § 34i GewO
+          </h2>
           <p class="mt-3">
-            Tätigkeit als Immobiliardarlehensvermittler gemäß § 34i GewO.<br />
-            Erlaubnis erteilt durch: [Zuständige IHK / Behörde einfügen]<br />
-            Registernummer im Vermittlerregister: [D-W-XXX-XXXX-XX einfügen]<br />
-            Registerführer: Deutscher Industrie- und Handelskammertag (DIHK) e.V.,
-            Breite Str. 29, 10178 Berlin – <a href="https://www.vermittlerregister.info" target="_blank" rel="noopener noreferrer" class="text-navy-900 underline hover:text-gold-700">vermittlerregister.info</a>
+            Tätigkeit als Immobiliardarlehensvermittler gemäß § 34i Gewerbeordnung (GewO).
+          </p>
+          <p class="mt-3">
+            <strong class="text-navy-950">Erlaubnis erteilt durch:</strong><br />
+            Industrie- und Handelskammer für Oberfranken Bayreuth<br />
+            Bahnhofstr. 25, 95444 Bayreuth
+          </p>
+          <p class="mt-3">
+            <strong class="text-navy-950">Vermittlerregister:</strong><br />
+            Deutscher Industrie- und Handelskammertag (DIHK) e.V.,
+            Breite Str. 29, 10178 Berlin<br />
+            <a
+              href="https://www.vermittlerregister.info"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-navy-900 underline hover:text-gold-700"
+            >
+              www.vermittlerregister.info
+            </a>
+          </p>
+          <p class="mt-3 rounded-md bg-cream-200/60 px-4 py-3 text-sm">
+            <strong class="text-navy-950">Hinweis:</strong> Die konkrete Vermittlerregister-Nummer
+            wird vor Live-Schaltung ergänzt.
           </p>
         </section>
 
         <section>
-          <h2 class="font-display text-xl text-navy-950">Berufshaftpflichtversicherung</h2>
+          <h2 class="font-display text-xl text-navy-950">
+            Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV
+          </h2>
           <p class="mt-3">
-            [Versicherer einfügen]<br />
-            Geltungsbereich: Deutschland
-          </p>
-        </section>
-
-        <section>
-          <h2 class="font-display text-xl text-navy-950">Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
-          <p class="mt-3">
-            Christoph Müller<br />
+            {legalEntity.representative}<br />
             Anschrift wie oben
           </p>
         </section>
 
         <section>
-          <h2 class="font-display text-xl text-navy-950">Verbraucherstreitbeilegung</h2>
+          <h2 class="font-display text-xl text-navy-950">
+            Verbraucherstreitbeilegung / Universalschlichtungsstelle
+          </h2>
           <p class="mt-3">
             Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer
             Verbraucherschlichtungsstelle teilzunehmen.
+          </p>
+          <p class="mt-3">
+            Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS)
+            bereit:{' '}
+            <a
+              href="https://ec.europa.eu/consumers/odr/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-navy-900 underline hover:text-gold-700"
+            >
+              https://ec.europa.eu/consumers/odr/
+            </a>
           </p>
         </section>
 
         <section>
           <h2 class="font-display text-xl text-navy-950">Haftung für Inhalte</h2>
           <p class="mt-3">
-            Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit,
+            Die Inhalte dieser Website wurden mit größter Sorgfalt erstellt. Für die Richtigkeit,
             Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen.
             Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten
             nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als
             Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde
-            Informationen zu überwachen.
+            Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige
+            Tätigkeit hinweisen.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-display text-xl text-navy-950">Haftung für Links</h2>
+          <p class="mt-3">
+            Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen
+            Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr
+            übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter
+            oder Betreiber der Seiten verantwortlich.
           </p>
         </section>
 
         <section>
           <h2 class="font-display text-xl text-navy-950">Urheberrecht</h2>
           <p class="mt-3">
-            Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen
-            dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art
-            der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen
-            Zustimmung des jeweiligen Autors bzw. Erstellers.
+            Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten
+            unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung
+            und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der
+            schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.
           </p>
         </section>
-
-        <p class="border-t border-navy-100 pt-6 text-sm text-ink-muted">
-          Hinweis: Die in eckigen Klammern markierten Felder sind vor Live-Schaltung von Christoph
-          mit den konkreten Daten zu befüllen.
-        </p>
       </div>
     </div>
   </article>

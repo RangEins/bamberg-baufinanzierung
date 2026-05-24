@@ -8,7 +8,9 @@ export default defineConfig({
   site: 'https://bamberg-baufinanzierung.de',
   output: 'static',
   adapter: vercel({
-    webAnalytics: { enabled: true },
+    // Analytics standardmaessig aus — wird via Cookie-Banner-Consent
+    // bei Bedarf manuell aktiviert. Bis dahin: keine externen Tracking-Requests.
+    webAnalytics: { enabled: false },
     imageService: true,
   }),
   integrations: [

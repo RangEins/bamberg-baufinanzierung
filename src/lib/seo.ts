@@ -1,13 +1,13 @@
 /**
  * Schema.org-Markup-Generatoren für maximale lokale SEO-Sichtbarkeit
- * und optimale Verständlichkeit für LLM-Crawler (perplexity, openai, anthropic, google AI Overviews).
+ * und optimale Verständlichkeit für LLM-Crawler.
  *
- * Alle Generatoren liefern reine JSON-Objekte, die per
- * <script type="application/ld+json" set:html={JSON.stringify(...)} />
- * eingebunden werden.
+ * Markenpolitik: name = "Baufinanzierung Bamberg" (sichtbare Marke).
+ * legalName = "Frankenbaufi GmbH" (juristisch korrekt).
+ * Beide Felder werden Schema.org-konform ausgegeben.
  */
 
-import { SITE, FAQ_ITEMS, SERVICES, REGION_CARDS } from './content';
+import { SITE, FAQ_ITEMS, SERVICES } from './content';
 
 const LANDKREIS_GEMEINDEN = [
   'Hirschaid',
@@ -49,27 +49,23 @@ export function localBusinessSchema() {
     '@context': 'https://schema.org',
     '@type': 'FinancialService',
     '@id': `${SITE.url}/#business`,
-    name: `${SITE.brand} – ${SITE.name}`,
-    alternateName: ['Baufinanzierung Bamberg', 'Frankenbaufi Bamberg'],
+    name: SITE.brand,
+    legalName: SITE.legalEntity.name,
+    alternateName: ['Baufinanzierung Bamberg', 'Immobilienfinanzierung Bamberg'],
     description: SITE.description,
     url: SITE.url,
     telephone: SITE.phoneTel,
     email: SITE.email,
     priceRange: 'kostenlos',
     image: `${SITE.url}/og-image.png`,
-    logo: `${SITE.url}/og-image.png`,
-    sameAs: [
-      'https://frankenbaufi.de',
-      'https://baufinanzierung-forchheim.de',
-      'https://baufinanzierung-erlangen.de',
-      'https://baufinanzierung-herzogenaurach.de',
-    ],
+    logo: `${SITE.url}/logo.svg`,
     address: {
       '@type': 'PostalAddress',
-      addressLocality: 'Bamberg',
+      streetAddress: SITE.legalEntity.street,
+      postalCode: SITE.legalEntity.zip,
+      addressLocality: SITE.legalEntity.city,
       addressRegion: 'BY',
-      addressCountry: 'DE',
-      postalCode: '96047',
+      addressCountry: SITE.legalEntity.country,
     },
     geo: {
       '@type': 'GeoCoordinates',
@@ -135,11 +131,6 @@ export function localBusinessSchema() {
       dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
       opens: '09:00',
       closes: '18:00',
-    },
-    founder: {
-      '@type': 'Person',
-      name: 'Christoph',
-      jobTitle: 'Baufinanzierungsberater',
     },
     slogan: 'Unabhängig, kostenlos und persönlich – für Bamberg, den Landkreis und Oberfranken.',
   };
@@ -208,12 +199,15 @@ export function organizationSchema() {
     '@type': 'Organization',
     '@id': `${SITE.url}/#organization`,
     name: SITE.brand,
-    url: 'https://frankenbaufi.de',
-    logo: `${SITE.url}/og-image.png`,
-    parentOrganization: {
-      '@type': 'Organization',
-      name: 'Frankenbaufi',
-      url: 'https://frankenbaufi.de',
+    legalName: SITE.legalEntity.name,
+    url: SITE.url,
+    logo: `${SITE.url}/logo.svg`,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: SITE.legalEntity.street,
+      postalCode: SITE.legalEntity.zip,
+      addressLocality: SITE.legalEntity.city,
+      addressCountry: SITE.legalEntity.country,
     },
     contactPoint: {
       '@type': 'ContactPoint',
