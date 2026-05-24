@@ -9,7 +9,7 @@ import Logo from '@/components/Logo.astro';
   class="fixed inset-x-0 top-0 z-40 transition-all duration-300"
   data-transparent="true"
 >
-  <div class="container-content flex items-center justify-between gap-3 py-2.5 md:gap-6 md:py-4">
+  <div class="container-content flex items-center justify-between gap-4 py-3 md:gap-8 md:py-5">
     <div class="logo-dark">
       <Logo variant="stacked" tone="dark" size="responsive" />
     </div>
@@ -17,7 +17,10 @@ import Logo from '@/components/Logo.astro';
       <Logo variant="stacked" tone="light" size="responsive" />
     </div>
 
-    <nav class="hidden items-center gap-8 lg:flex" aria-label="Hauptnavigation">
+    <nav
+      class="hidden flex-1 items-center justify-center gap-7 lg:flex xl:gap-9"
+      aria-label="Hauptnavigation"
+    >
       {NAV_ITEMS.map((item) => (
         <a
           href={item.href}
@@ -28,7 +31,7 @@ import Logo from '@/components/Logo.astro';
       ))}
     </nav>
 
-    <div class="flex items-center gap-2 md:gap-3">
+    <div class="flex items-center gap-2.5 md:gap-4">
       <a
         href={`tel:${SITE.phoneTel}`}
         class="hidden items-center gap-2 text-sm font-medium transition-colors md:flex phone-link"
@@ -38,7 +41,6 @@ import Logo from '@/components/Logo.astro';
         <span>{SITE.phone}</span>
       </a>
 
-      <!-- Mobile-only icon-call (Touch-Target 44px) -->
       <a
         href={`tel:${SITE.phoneTel}`}
         class="flex size-11 items-center justify-center rounded-md border transition-colors md:hidden phone-icon"
@@ -49,7 +51,7 @@ import Logo from '@/components/Logo.astro';
 
       <a
         href="#anfragen"
-        class="inline-flex h-11 items-center justify-center rounded-md bg-gold-500 px-4 text-sm font-semibold text-navy-950 shadow-sm transition-all hover:bg-gold-400 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-300 focus-visible:ring-offset-2 md:px-5"
+        class="inline-flex h-11 items-center justify-center rounded-md bg-gold-500 px-4 text-sm font-semibold text-navy-950 shadow-sm transition-all hover:bg-gold-400 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-300 focus-visible:ring-offset-2 md:h-12 md:px-5"
       >
         <span class="md:hidden">Anfragen</span>
         <span class="hidden md:inline">Beratung anfragen</span>
