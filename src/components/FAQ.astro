@@ -1,0 +1,64 @@
+---
+import { ChevronDown } from '@lucide/astro';
+import { FAQ_ITEMS } from '@/lib/content';
+---
+
+<section
+  id="faq"
+  class="bg-cream-50 py-20 md:py-28"
+  aria-labelledby="faq-heading"
+>
+  <div class="container-content">
+    <div data-reveal class="mx-auto max-w-2xl text-center">
+      <p class="text-sm font-semibold uppercase tracking-wider text-gold-700">
+        Häufige Fragen
+      </p>
+      <h2
+        id="faq-heading"
+        class="mt-3 font-display text-3xl text-navy-950 sm:text-4xl md:text-5xl"
+      >
+        Was Sie über uns wissen wollen.
+      </h2>
+      <p class="mt-4 text-lg text-ink-soft">
+        Antworten auf die Fragen, die uns am häufigsten zur Baufinanzierung in Bamberg
+        und im Landkreis gestellt werden.
+      </p>
+    </div>
+
+    <div data-reveal data-reveal-delay="120" class="mx-auto mt-12 max-w-3xl md:mt-14">
+      <div class="divide-y divide-navy-100 overflow-hidden rounded-2xl border border-navy-100 bg-white shadow-soft">
+        {FAQ_ITEMS.map((item) => (
+          <details class="group">
+            <summary class="flex cursor-pointer items-start justify-between gap-6 px-6 py-5 transition-colors hover:bg-cream-50/60 md:px-7 md:py-6">
+              <span class="font-display text-lg text-navy-950 md:text-xl">
+                {item.question}
+              </span>
+              <span
+                class="mt-1 flex size-7 shrink-0 items-center justify-center rounded-full border border-navy-200 text-navy-700 transition-all group-open:rotate-180 group-open:border-gold-500 group-open:bg-gold-50 group-open:text-gold-700"
+                aria-hidden="true"
+              >
+                <ChevronDown class="size-4" strokeWidth={2.25} />
+              </span>
+            </summary>
+            <div class="border-t border-navy-100 bg-cream-50/30 px-6 py-5 md:px-7 md:py-6">
+              <p class="text-base leading-relaxed text-ink-soft">
+                {item.answer}
+              </p>
+            </div>
+          </details>
+        ))}
+      </div>
+
+      <p class="mt-8 text-center text-sm text-ink-muted">
+        Ihre Frage ist nicht dabei?{' '}
+        <a
+          href="#anfragen"
+          class="font-semibold text-navy-900 underline underline-offset-4 hover:text-gold-700"
+        >
+          Stellen Sie sie direkt an Christoph
+        </a>{' '}
+        – Antwort innerhalb von 24 Stunden.
+      </p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,27 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Hero from '@/components/Hero.astro';
+import StatsBar from '@/components/StatsBar.astro';
+import ComparisonTable from '@/components/ComparisonTable.astro';
+import Services from '@/components/Services.astro';
+import Foerderung from '@/components/Foerderung.astro';
+import MarketData from '@/components/MarketData.astro';
+import MidPageCTA from '@/components/MidPageCTA.astro';
+import RegionGrid from '@/components/RegionGrid.astro';
+import FAQ from '@/components/FAQ.astro';
+
+const title = 'Baufinanzierung Bamberg – Unabhängig, kostenlos & persönlich | Frankenbaufi';
+const description = 'Unabhängige Baufinanzierung für Bamberg und den Landkreis Bamberg. 600+ Banken im Vergleich, 25 Jahre Erfahrung in Franken. Kostenlose Erstberatung – persönlich durch Christoph.';
+---
+
+<BaseLayout title={title} description={description}>
+  <Hero />
+  <StatsBar />
+  <ComparisonTable />
+  <Services />
+  <Foerderung />
+  <MarketData />
+  <MidPageCTA />
+  <RegionGrid />
+  <FAQ />
+</BaseLayout>

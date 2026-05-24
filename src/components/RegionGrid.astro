@@ -1,0 +1,103 @@
+---
+import { ArrowUpRight, MapPin, Plus } from '@lucide/astro';
+import { REGION_CARDS } from '@/lib/content';
+---
+
+<section
+  id="region"
+  class="bg-cream-100 py-20 md:py-28"
+  aria-labelledby="region-heading"
+>
+  <div class="container-content">
+    <div data-reveal class="mx-auto max-w-2xl text-center">
+      <p class="text-sm font-semibold uppercase tracking-wider text-gold-700">
+        Bamberg Stadt &amp; Landkreis
+      </p>
+      <h2
+        id="region-heading"
+        class="mt-3 font-display text-3xl text-navy-950 sm:text-4xl md:text-5xl"
+      >
+        Wir kennen die Marktbesonderheiten jeder Gemeinde.
+      </h2>
+      <p class="mt-4 text-lg text-ink-soft">
+        Von der Welterbe-Altstadt bis Hirschaid: Die Preise, Arbeitgeber und Lagen unterscheiden
+        sich. Wir bewerten Ihr Vorhaben mit dem lokalen Kontext, den Online-Tools nicht haben.
+      </p>
+    </div>
+
+    <div class="mt-14 grid gap-5 md:mt-16 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+      {REGION_CARDS.map((card, idx) => (
+        <a
+          data-reveal
+          data-reveal-delay={idx * 60}
+          href="#anfragen"
+          class={`group relative flex flex-col overflow-hidden rounded-2xl border border-navy-100 p-6 shadow-soft transition-all hover:-translate-y-1 hover:border-gold-300 hover:shadow-card md:p-7 ${
+            card.fallback ? 'bg-navy-950 text-cream-50 hover:border-gold-500' : 'bg-white'
+          }`}
+        >
+          {!card.fallback && (
+            <div
+              class="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-gold-500 transition-transform duration-500 group-hover:scale-x-100"
+              aria-hidden="true"
+            >
+            </div>
+          )}
+
+          <div class="flex items-center gap-2">
+            {card.fallback ? (
+              <Plus class="size-5 text-gold-400" />
+            ) : (
+              <MapPin class="size-5 text-gold-600" />
+            )}
+            <span
+              class={`text-xs font-semibold uppercase tracking-wider ${
+                card.fallback ? 'text-gold-400' : 'text-gold-700'
+              }`}
+            >
+              {card.badge}
+            </span>
+          </div>
+
+          <h3
+            class={`mt-4 font-display text-xl md:text-2xl ${
+              card.fallback ? 'text-cream-50' : 'text-navy-950'
+            }`}
+          >
+            {card.fallback ? card.name : `Baufinanzierung ${card.name}`}
+          </h3>
+
+          <ul class={`mt-3 space-y-1.5 text-sm ${card.fallback ? 'text-cream-100/70' : 'text-ink-muted'}`}>
+            {card.stats.map((stat) => (
+              <li class="flex items-center gap-1.5">
+                <span
+                  class={`size-1 rounded-full ${card.fallback ? 'bg-gold-400' : 'bg-gold-500'}`}
+                  aria-hidden="true"
+                ></span>
+                {stat}
+              </li>
+            ))}
+          </ul>
+
+          <p
+            class={`mt-4 flex-1 text-sm ${
+              card.fallback ? 'text-cream-100/80' : 'text-ink-soft'
+            }`}
+          >
+            {card.description}
+          </p>
+
+          <span
+            class={`mt-5 inline-flex items-center gap-1 text-sm font-semibold transition-colors ${
+              card.fallback
+                ? 'text-gold-400 group-hover:text-gold-300'
+                : 'text-navy-900 group-hover:text-gold-700'
+            }`}
+          >
+            {card.fallback ? 'Jetzt anfragen' : `Anfrage ${card.name}`}
+            <ArrowUpRight class="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,149 @@
+---
+import '@/styles/global.css';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import {
+  localBusinessSchema,
+  serviceSchema,
+  faqSchema,
+  organizationSchema,
+  websiteSchema,
+} from '@/lib/seo';
+import { SITE } from '@/lib/content';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+  noIndex?: boolean;
+  includeFaqSchema?: boolean;
+  includeServiceSchema?: boolean;
+  includeBusinessSchema?: boolean;
+}
+
+const {
+  title,
+  description,
+  canonical,
+  ogImage = '/og-image.png',
+  noIndex = false,
+  includeFaqSchema = true,
+  includeServiceSchema = true,
+  includeBusinessSchema = true,
+} = Astro.props;
+
+const canonicalURL = canonical || new URL(Astro.url.pathname, Astro.site).toString();
+const ogImageURL = ogImage.startsWith('http') ? ogImage : new URL(ogImage, Astro.site).toString();
+---
+
+<!doctype html>
+<html lang="de" prefix="og: https://ogp.me/ns#">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#0A1424" />
+    <meta name="color-scheme" content="light" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content={SITE.brand} />
+    <meta name="publisher" content={SITE.brand} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <meta name="robots" content={noIndex ? 'noindex, nofollow' : 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1'} />
+    <meta name="googlebot" content={noIndex ? 'noindex, nofollow' : 'index, follow'} />
+
+    <meta name="geo.region" content="DE-BY" />
+    <meta name="geo.placename" content="Bamberg" />
+    <meta name="geo.position" content="49.8988;10.9028" />
+    <meta name="ICBM" content="49.8988, 10.9028" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={`${SITE.name} – Frankenbaufi`} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..800&family=Inter:wght@300..700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..800&family=Inter:wght@300..700&display=swap"
+    />
+
+    <link rel="alternate" hreflang="de" href={SITE.url} />
+    <link rel="alternate" hreflang="x-default" href={SITE.url} />
+
+    {includeBusinessSchema && (
+      <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema())} />
+    )}
+    {includeServiceSchema && (
+      <script type="application/ld+json" set:html={JSON.stringify(serviceSchema())} />
+    )}
+    {includeFaqSchema && (
+      <script type="application/ld+json" set:html={JSON.stringify(faqSchema())} />
+    )}
+    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema())} />
+    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema())} />
+  </head>
+  <body>
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-navy-950 focus:px-4 focus:py-2 focus:text-cream-50"
+    >
+      Zum Hauptinhalt springen
+    </a>
+    <Header />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+
+    <script>
+      // Sanftes Reveal-on-Scroll, ohne GSAP-Overhead.
+      if (typeof window !== 'undefined' && 'IntersectionObserver' in window) {
+        const reveal = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const el = entry.target as HTMLElement;
+              const delay = parseInt(el.dataset.revealDelay || '0', 10);
+              window.setTimeout(() => el.classList.add('is-visible'), delay);
+              observer.unobserve(el);
+            }
+          });
+        };
+
+        const observer = new IntersectionObserver(reveal, {
+          rootMargin: '0px 0px -10% 0px',
+          threshold: 0.05,
+        });
+
+        document.querySelectorAll<HTMLElement>('[data-reveal]').forEach((el) => observer.observe(el));
+      } else {
+        document.querySelectorAll<HTMLElement>('[data-reveal]').forEach((el) => el.classList.add('is-visible'));
+      }
+    </script>
+  </body>
+</html>

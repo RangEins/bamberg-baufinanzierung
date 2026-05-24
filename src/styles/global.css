@@ -1,0 +1,158 @@
+@import 'tailwindcss';
+
+@theme {
+  /* Navy (Primary Dark) */
+  --color-navy-50: #F2F4F8;
+  --color-navy-100: #E3E7EE;
+  --color-navy-200: #C7CFDD;
+  --color-navy-300: #9AAAC4;
+  --color-navy-400: #6B81A4;
+  --color-navy-500: #3D5A80;
+  --color-navy-600: #324A6A;
+  --color-navy-700: #273B55;
+  --color-navy-800: #1E3050;
+  --color-navy-900: #142036;
+  --color-navy-950: #0A1424;
+
+  /* Gold (Accent) */
+  --color-gold-50: #FBF6E8;
+  --color-gold-100: #F6ECCB;
+  --color-gold-200: #F0DD9B;
+  --color-gold-300: #E8C77A;
+  --color-gold-400: #DAB45D;
+  --color-gold-500: #C9A646;
+  --color-gold-600: #A6862F;
+  --color-gold-700: #7D661F;
+  --color-gold-800: #5C4A17;
+  --color-gold-900: #3E330F;
+
+  /* Cream (Surface) */
+  --color-cream-50: #FBF8F1;
+  --color-cream-100: #F5EFE2;
+  --color-cream-200: #EDE3CC;
+
+  /* Ink (Text) */
+  --color-ink: #101826;
+  --color-ink-soft: #2C3A50;
+  --color-ink-muted: #5A6A82;
+
+  /* Fonts */
+  --font-display: 'Fraunces', ui-serif, Georgia, serif;
+  --font-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
+
+  /* Shadows */
+  --shadow-soft: 0 4px 24px -8px rgb(20 32 54 / 0.12);
+  --shadow-card: 0 10px 40px -15px rgb(20 32 54 / 0.18);
+  --shadow-gold: 0 8px 32px -12px rgb(201 166 70 / 0.35);
+
+  /* Container */
+  --container-content: 80rem;
+}
+
+/* Base layer adjustments */
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--color-cream-50);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11', 'ss01';
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Smooth focus ring */
+  :focus-visible {
+    outline: 2px solid var(--color-gold-500);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* Selection */
+  ::selection {
+    background-color: var(--color-gold-300);
+    color: var(--color-navy-950);
+  }
+}
+
+@layer utilities {
+  .container-content {
+    max-width: var(--container-content);
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    .container-content {
+      padding-inline: 3rem;
+    }
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .gradient-gold-radial {
+    background: radial-gradient(
+      circle at top right,
+      rgb(201 166 70 / 0.18),
+      transparent 60%
+    );
+  }
+
+  .gradient-navy-fade {
+    background: linear-gradient(
+      135deg,
+      var(--color-navy-950) 0%,
+      var(--color-navy-900) 60%,
+      var(--color-navy-800) 100%
+    );
+  }
+
+  /* Hide default details marker */
+  details > summary {
+    list-style: none;
+  }
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+}
+
+/* Reveal animation utilities (used by Reveal.astro + GSAP scripts) */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Honeypot field — visually hidden but accessible */
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}

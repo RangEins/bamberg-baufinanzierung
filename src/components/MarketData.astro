@@ -1,0 +1,123 @@
+---
+import { TrendingUp, MapPin } from '@lucide/astro';
+import { MARKET_DATA_STADT, MARKET_DATA_LANDKREIS, MARKET_SOURCES } from '@/lib/content';
+---
+
+<section
+  id="marktdaten"
+  class="bg-cream-50 py-20 md:py-28"
+  aria-labelledby="marktdaten-heading"
+>
+  <div class="container-content">
+    <div data-reveal class="mx-auto max-w-2xl text-center">
+      <p class="text-sm font-semibold uppercase tracking-wider text-gold-700">
+        Marktdaten Stand Mai 2026
+      </p>
+      <h2
+        id="marktdaten-heading"
+        class="mt-3 font-display text-3xl text-navy-950 sm:text-4xl md:text-5xl"
+      >
+        Immobilienpreise Bamberg – Stadt &amp; Landkreis im Überblick.
+      </h2>
+      <p class="mt-4 text-lg text-ink-soft">
+        Aktuelle Preisspannen für Häuser und Wohnungen in der Stadt sowie in den größten
+        Landkreis-Gemeinden. Solide Datengrundlage statt Bauchgefühl.
+      </p>
+    </div>
+
+    <div class="mt-14 grid gap-8 lg:grid-cols-2 lg:gap-10">
+      <!-- Stadt -->
+      <div
+        data-reveal
+        data-reveal-delay="80"
+        class="overflow-hidden rounded-2xl border border-navy-100 bg-white shadow-card"
+      >
+        <div class="border-b border-navy-100 bg-navy-950 px-6 py-5 text-cream-50">
+          <div class="flex items-center gap-3">
+            <div class="flex size-10 items-center justify-center rounded-lg bg-gold-500/20">
+              <MapPin class="size-5 text-gold-300" />
+            </div>
+            <div>
+              <h3 class="font-display text-xl">{MARKET_DATA_STADT.title}</h3>
+              <p class="text-xs text-cream-100/70">{MARKET_DATA_STADT.asOf}</p>
+            </div>
+          </div>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full">
+            <thead>
+              <tr class="border-b border-navy-100 bg-cream-50/60 text-left">
+                <th class="px-6 py-3 text-xs font-semibold uppercase tracking-wider text-ink-muted">Segment</th>
+                <th class="px-6 py-3 text-right text-xs font-semibold uppercase tracking-wider text-ink-muted">Durchschnitt</th>
+                <th class="px-6 py-3 text-right text-xs font-semibold uppercase tracking-wider text-ink-muted">Spanne</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-navy-100">
+              {MARKET_DATA_STADT.rows.map((row) => (
+                <tr class="transition-colors hover:bg-cream-50/40">
+                  <td class="px-6 py-4 font-medium text-navy-950">{row.segment}</td>
+                  <td class="px-6 py-4 text-right font-display text-lg text-gold-700">{row.avg}</td>
+                  <td class="px-6 py-4 text-right text-sm text-ink-soft">{row.range}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <div class="border-t border-navy-100 bg-cream-50/40 px-6 py-5">
+          <p class="text-xs font-semibold uppercase tracking-wider text-gold-700">Stadtteil-Highlights</p>
+          <ul class="mt-3 space-y-1.5 text-sm text-ink-soft">
+            {MARKET_DATA_STADT.highlights.map((item) => (
+              <li class="flex items-start gap-2">
+                <span class="mt-2 size-1 shrink-0 rounded-full bg-gold-500" aria-hidden="true"></span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <!-- Landkreis -->
+      <div
+        data-reveal
+        data-reveal-delay="180"
+        class="overflow-hidden rounded-2xl border border-navy-100 bg-white shadow-card"
+      >
+        <div class="border-b border-navy-100 bg-navy-900 px-6 py-5 text-cream-50">
+          <div class="flex items-center gap-3">
+            <div class="flex size-10 items-center justify-center rounded-lg bg-gold-500/20">
+              <TrendingUp class="size-5 text-gold-300" />
+            </div>
+            <div>
+              <h3 class="font-display text-xl">{MARKET_DATA_LANDKREIS.title}</h3>
+              <p class="text-xs text-cream-100/70">{MARKET_DATA_LANDKREIS.asOf}</p>
+            </div>
+          </div>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full">
+            <thead>
+              <tr class="border-b border-navy-100 bg-cream-50/60 text-left">
+                <th class="px-6 py-3 text-xs font-semibold uppercase tracking-wider text-ink-muted">Gemeinde</th>
+                <th class="px-6 py-3 text-right text-xs font-semibold uppercase tracking-wider text-ink-muted">Ø-Preis</th>
+                <th class="px-6 py-3 text-right text-xs font-semibold uppercase tracking-wider text-ink-muted">Charakter</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-navy-100">
+              {MARKET_DATA_LANDKREIS.rows.map((row) => (
+                <tr class="transition-colors hover:bg-cream-50/40">
+                  <td class="px-6 py-4 font-medium text-navy-950">{row.segment}</td>
+                  <td class="px-6 py-4 text-right font-display text-lg text-gold-700">{row.avg}</td>
+                  <td class="px-6 py-4 text-right text-sm text-ink-soft">{row.range}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <p data-reveal class="mt-8 text-center text-xs text-ink-muted">
+      {MARKET_SOURCES}
+    </p>
+  </div>
+</section>

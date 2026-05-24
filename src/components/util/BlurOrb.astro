@@ -1,0 +1,53 @@
+---
+interface Props {
+  color?: 'gold' | 'navy' | 'cream';
+  size?: 'sm' | 'md' | 'lg' | 'xl';
+  position?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' | 'center';
+  opacity?: number;
+  class?: string;
+}
+
+const {
+  color = 'gold',
+  size = 'lg',
+  position = 'top-right',
+  opacity = 0.2,
+  class: className = '',
+} = Astro.props;
+
+const colorMap = {
+  gold: 'rgb(201 166 70)',
+  navy: 'rgb(61 90 128)',
+  cream: 'rgb(237 227 204)',
+};
+
+const sizeMap = {
+  sm: '16rem',
+  md: '24rem',
+  lg: '36rem',
+  xl: '52rem',
+};
+
+const positionMap = {
+  'top-left': 'top: -10%; left: -10%;',
+  'top-right': 'top: -10%; right: -10%;',
+  'bottom-left': 'bottom: -10%; left: -10%;',
+  'bottom-right': 'bottom: -10%; right: -10%;',
+  center: 'top: 50%; left: 50%; transform: translate(-50%, -50%);',
+};
+
+const styles = `
+  width: ${sizeMap[size]};
+  height: ${sizeMap[size]};
+  background: radial-gradient(circle, ${colorMap[color]} 0%, transparent 70%);
+  opacity: ${opacity};
+  ${positionMap[position]}
+`;
+---
+
+<div
+  aria-hidden="true"
+  class={`pointer-events-none absolute rounded-full blur-3xl ${className}`}
+  style={styles}
+>
+</div>

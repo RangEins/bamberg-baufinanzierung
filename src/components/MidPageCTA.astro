@@ -1,0 +1,80 @@
+---
+import { ArrowRight, Phone } from '@lucide/astro';
+import { MIDPAGE_CTA, SITE } from '@/lib/content';
+import BlurOrb from '@/components/util/BlurOrb.astro';
+---
+
+<section
+  class="relative isolate overflow-hidden bg-navy-950 py-24 md:py-32"
+  aria-labelledby="midpage-cta-heading"
+>
+  <!-- Particle Canvas (Desktop only) -->
+  <canvas
+    id="particle-canvas"
+    class="absolute inset-0 -z-10 hidden h-full w-full md:block"
+    aria-hidden="true"
+  ></canvas>
+
+  <!-- Static fallback background -->
+  <div
+    class="absolute inset-0 -z-20"
+    aria-hidden="true"
+    style="background: linear-gradient(135deg, #0A1424 0%, #142036 60%, #1E3050 100%);"
+  >
+  </div>
+
+  <BlurOrb color="gold" size="xl" position="top-right" opacity={0.2} />
+  <BlurOrb color="navy" size="lg" position="bottom-left" opacity={0.4} />
+
+  <div class="container-content relative">
+    <div data-reveal class="mx-auto max-w-3xl text-center">
+      <p class="text-sm font-semibold uppercase tracking-wider text-gold-400">
+        {MIDPAGE_CTA.eyebrow}
+      </p>
+      <h2
+        id="midpage-cta-heading"
+        class="mt-4 font-display text-4xl text-cream-50 sm:text-5xl md:text-6xl"
+      >
+        {MIDPAGE_CTA.headline}
+      </h2>
+      <p class="mt-6 text-lg text-cream-100/80 md:text-xl">
+        {MIDPAGE_CTA.subline}
+      </p>
+
+      <div class="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+        <a
+          href="#anfragen"
+          class="inline-flex items-center justify-center gap-2 rounded-md bg-gold-500 px-7 py-3.5 text-base font-semibold text-navy-950 shadow-xl shadow-gold-500/20 transition-all hover:bg-gold-400 hover:shadow-2xl hover:shadow-gold-500/40"
+        >
+          {MIDPAGE_CTA.cta}
+          <ArrowRight class="size-4" />
+        </a>
+        <a
+          href={`tel:${SITE.phoneTel}`}
+          class="inline-flex items-center justify-center gap-2 rounded-md border border-cream-50/20 bg-white/5 px-7 py-3.5 text-base font-medium text-cream-50 backdrop-blur-sm transition-all hover:border-cream-50/40 hover:bg-white/10"
+        >
+          <Phone class="size-4" />
+          {SITE.phone}
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Lazy load particle field only on desktop, on idle
+    if (typeof window !== 'undefined' && window.matchMedia('(min-width: 768px)').matches) {
+      const start = () => {
+        import('./three/particle-field').then(({ initParticles }) => {
+          initParticles(document.getElementById('particle-canvas') as HTMLCanvasElement);
+        }).catch(() => {
+          // silently fail — static gradient is fine
+        });
+      };
+      if ('requestIdleCallback' in window) {
+        (window as any).requestIdleCallback(start, { timeout: 2500 });
+      } else {
+        window.setTimeout(start, 1500);
+      }
+    }
+  </script>
+</section>

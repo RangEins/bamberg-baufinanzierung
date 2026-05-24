@@ -1,0 +1,39 @@
+---
+interface Props {
+  variant?: 'wave' | 'angle' | 'subtle';
+  flip?: boolean;
+  topColor?: string;
+  bottomColor?: string;
+}
+
+const {
+  variant = 'subtle',
+  flip = false,
+  topColor = 'var(--color-cream-50)',
+  bottomColor = 'var(--color-cream-100)',
+} = Astro.props;
+---
+
+{variant === 'subtle' && (
+  <div
+    aria-hidden="true"
+    class="h-px w-full"
+    style={`background: linear-gradient(to right, transparent, var(--color-navy-200), transparent);`}
+  />
+)}
+
+{variant === 'angle' && (
+  <div
+    aria-hidden="true"
+    class="relative h-16 overflow-hidden"
+    style={`background-color: ${topColor};`}
+  >
+    <div
+      class="absolute inset-0"
+      style={`
+        background-color: ${bottomColor};
+        clip-path: polygon(0 100%, 100% ${flip ? '0' : '60%'}, 100% 100%);
+      `}
+    />
+  </div>
+)}

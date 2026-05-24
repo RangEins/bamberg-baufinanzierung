@@ -1,0 +1,93 @@
+---
+import { Check, X, Banknote, Handshake } from '@lucide/astro';
+import { COMPARISON_ROWS } from '@/lib/content';
+---
+
+<section
+  id="vergleich"
+  class="bg-cream-100 py-20 md:py-28"
+  aria-labelledby="vergleich-heading"
+>
+  <div class="container-content">
+    <div data-reveal class="mx-auto max-w-2xl text-center">
+      <p class="text-sm font-semibold uppercase tracking-wider text-gold-700">
+        Hausbank vs. unabhängige Beratung
+      </p>
+      <h2
+        id="vergleich-heading"
+        class="mt-3 font-display text-3xl text-navy-950 sm:text-4xl md:text-5xl"
+      >
+        Warum nicht einfach zur Hausbank?
+      </h2>
+      <p class="mt-4 text-lg text-ink-soft">
+        Weil Ihre Hausbank nur ein Produkt vergleicht: das eigene. Wir vergleichen über 600 –
+        und Sie zahlen für unsere Beratung keinen Cent.
+      </p>
+    </div>
+
+    <div
+      data-reveal
+      data-reveal-delay="160"
+      class="mt-12 overflow-hidden rounded-2xl border border-navy-100 bg-white shadow-card md:mt-16"
+    >
+      <!-- Headers -->
+      <div class="hidden grid-cols-[1.4fr_1fr_1fr] border-b border-navy-100 bg-cream-50 md:grid">
+        <div class="px-6 py-5"></div>
+        <div class="border-x border-navy-100 px-6 py-5 text-center">
+          <div class="flex items-center justify-center gap-2 text-ink-muted">
+            <Banknote class="size-4" />
+            <span class="text-sm font-semibold uppercase tracking-wider">Hausbank</span>
+          </div>
+        </div>
+        <div class="px-6 py-5 text-center">
+          <div class="flex items-center justify-center gap-2 text-navy-950">
+            <Handshake class="size-4 text-gold-600" />
+            <span class="text-sm font-semibold uppercase tracking-wider">Frankenbaufi</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rows -->
+      <div class="divide-y divide-navy-100">
+        {COMPARISON_ROWS.map((row, idx) => (
+          <div
+            class={`grid grid-cols-1 md:grid-cols-[1.4fr_1fr_1fr] ${
+              idx % 2 === 0 ? 'bg-white' : 'bg-cream-50/40'
+            }`}
+          >
+            <div class="px-6 py-4 md:py-5">
+              <div class="font-medium text-navy-950">{row.feature}</div>
+            </div>
+            <div class="flex items-start gap-3 border-t border-navy-100 px-6 py-3 text-sm text-ink-soft md:border-t-0 md:border-x md:py-5">
+              <X class="mt-0.5 size-4 shrink-0 text-ink-muted" strokeWidth={2.5} />
+              <span>
+                <span class="text-xs font-semibold uppercase tracking-wider text-ink-muted md:hidden">
+                  Hausbank:&nbsp;
+                </span>
+                {row.hausbank}
+              </span>
+            </div>
+            <div class="flex items-start gap-3 border-t border-navy-100 px-6 py-3 text-sm text-navy-950 md:border-t-0 md:py-5">
+              <Check class="mt-0.5 size-4 shrink-0 text-gold-600" strokeWidth={2.5} />
+              <span>
+                <span class="text-xs font-semibold uppercase tracking-wider text-gold-700 md:hidden">
+                  Frankenbaufi:&nbsp;
+                </span>
+                {row.frankenbaufi}
+              </span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div data-reveal data-reveal-delay="280" class="mt-10 text-center">
+      <a
+        href="#anfragen"
+        class="inline-flex items-center justify-center rounded-md bg-navy-900 px-6 py-3 text-sm font-semibold text-cream-50 transition-all hover:bg-navy-800"
+      >
+        Jetzt unverbindlich anfragen
+      </a>
+    </div>
+  </div>
+</section>

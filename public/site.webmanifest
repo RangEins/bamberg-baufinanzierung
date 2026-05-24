@@ -1,0 +1,17 @@
+{
+  "name": "Baufinanzierung Bamberg",
+  "short_name": "Frankenbaufi Bamberg",
+  "description": "Unabhängige Baufinanzierung für Bamberg und den Landkreis Bamberg.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FBF8F1",
+  "theme_color": "#0A1424",
+  "lang": "de-DE",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { SITE } from '@/lib/content';
+
+const title = 'Impressum | Baufinanzierung Bamberg';
+const description = 'Impressum und Anbieterkennzeichnung gemäß § 5 TMG für bamberg-baufinanzierung.de.';
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  includeFaqSchema={false}
+  includeServiceSchema={false}
+>
+  <article class="bg-cream-50 py-24 md:py-32">
+    <div class="container-content max-w-3xl">
+      <p class="text-sm font-semibold uppercase tracking-wider text-gold-700">Rechtliches</p>
+      <h1 class="mt-3 font-display text-4xl text-navy-950 sm:text-5xl">Impressum</h1>
+
+      <div class="mt-10 space-y-8 text-ink-soft">
+        <section>
+          <h2 class="font-display text-xl text-navy-950">Angaben gemäß § 5 TMG</h2>
+          <p class="mt-3">
+            {SITE.brand} – Standort Bamberg<br />
+            Christoph Müller<br />
+            [Anschrift Bamberg-Büro einfügen]<br />
+            96047 Bamberg<br />
+            Deutschland
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-display text-xl text-navy-950">Kontakt</h2>
+          <p class="mt-3">
+            Telefon: <a href={`tel:${SITE.phoneTel}`} class="text-navy-900 underline hover:text-gold-700">{SITE.phone}</a><br />
+            E-Mail: <a href={`mailto:${SITE.email}`} class="text-navy-900 underline hover:text-gold-700">{SITE.email}</a>
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-display text-xl text-navy-950">Aufsichtsbehörde &amp; Erlaubnis</h2>
+          <p class="mt-3">
+            Tätigkeit als Immobiliardarlehensvermittler gemäß § 34i GewO.<br />
+            Erlaubnis erteilt durch: [Zuständige IHK / Behörde einfügen]<br />
+            Registernummer im Vermittlerregister: [D-W-XXX-XXXX-XX einfügen]<br />
+            Registerführer: Deutscher Industrie- und Handelskammertag (DIHK) e.V.,
+            Breite Str. 29, 10178 Berlin – <a href="https://www.vermittlerregister.info" target="_blank" rel="noopener noreferrer" class="text-navy-900 underline hover:text-gold-700">vermittlerregister.info</a>
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-display text-xl text-navy-950">Berufshaftpflichtversicherung</h2>
+          <p class="mt-3">
+            [Versicherer einfügen]<br />
+            Geltungsbereich: Deutschland
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-display text-xl text-navy-950">Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
+          <p class="mt-3">
+            Christoph Müller<br />
+            Anschrift wie oben
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-display text-xl text-navy-950">Verbraucherstreitbeilegung</h2>
+          <p class="mt-3">
+            Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer
+            Verbraucherschlichtungsstelle teilzunehmen.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-display text-xl text-navy-950">Haftung für Inhalte</h2>
+          <p class="mt-3">
+            Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit,
+            Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen.
+            Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten
+            nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als
+            Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde
+            Informationen zu überwachen.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-display text-xl text-navy-950">Urheberrecht</h2>
+          <p class="mt-3">
+            Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen
+            dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art
+            der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen
+            Zustimmung des jeweiligen Autors bzw. Erstellers.
+          </p>
+        </section>
+
+        <p class="border-t border-navy-100 pt-6 text-sm text-ink-muted">
+          Hinweis: Die in eckigen Klammern markierten Felder sind vor Live-Schaltung von Christoph
+          mit den konkreten Daten zu befüllen.
+        </p>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
