@@ -7,7 +7,7 @@ import BlurOrb from '@/components/util/BlurOrb.astro';
 
 <section
   id="hero"
-  class="relative isolate overflow-hidden bg-navy-950 pt-28 pb-20 md:pt-36 md:pb-24 lg:pt-44 lg:pb-32"
+  class="relative isolate overflow-hidden bg-navy-950 pt-20 pb-14 md:pt-32 md:pb-20 lg:pt-40 lg:pb-28"
 >
   <!-- Decorative background -->
   <div
@@ -20,7 +20,6 @@ import BlurOrb from '@/components/util/BlurOrb.astro';
   <BlurOrb color="gold" size="xl" position="top-right" opacity={0.18} />
   <BlurOrb color="navy" size="lg" position="bottom-left" opacity={0.3} />
 
-  <!-- Subtle topographic overlay (SVG pattern) -->
   <div
     class="absolute inset-0 -z-10 opacity-[0.04]"
     aria-hidden="true"
@@ -29,77 +28,76 @@ import BlurOrb from '@/components/util/BlurOrb.astro';
   </div>
 
   <div class="container-content">
-    <div class="grid items-start gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
+    <div class="grid items-start gap-10 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
       <!-- Left column: copy -->
       <div class="text-cream-50">
-        <div data-reveal class="inline-flex items-center gap-2 rounded-full border border-gold-500/30 bg-gold-500/10 px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-gold-300">
+        <div
+          data-reveal
+          class="inline-flex items-center gap-2 rounded-full border border-gold-500/30 bg-gold-500/10 px-3.5 py-1.5 text-[11px] font-medium uppercase tracking-wider text-gold-300 md:text-xs"
+        >
           <span class="size-1.5 rounded-full bg-gold-400"></span>
-          {HERO.badge}
+          <span class="md:hidden">Unabhängig · Bamberg & Landkreis</span>
+          <span class="hidden md:inline">{HERO.badge}</span>
         </div>
 
         <h1
           data-reveal
           data-reveal-delay="120"
-          class="mt-6 font-display text-4xl font-medium leading-[1.05] tracking-tight sm:text-5xl md:text-6xl lg:text-[4rem]"
+          class="mt-5 font-display text-[2rem] font-medium leading-[1.08] tracking-tight sm:text-5xl md:mt-6 md:text-6xl lg:text-[3.75rem]"
         >
           <span class="text-cream-50">{HERO.headline}</span>
-          <span class="mt-2 block text-gold-400">{HERO.headlineAccent}</span>
+          <span class="mt-1.5 block text-gold-400 md:mt-2">{HERO.headlineAccent}</span>
         </h1>
 
         <p
           data-reveal
           data-reveal-delay="240"
-          class="mt-6 max-w-xl text-lg leading-relaxed text-cream-100/85 md:text-xl"
+          class="mt-4 max-w-xl text-[15px] leading-relaxed text-cream-100/85 sm:text-base md:mt-6 md:text-lg lg:text-xl"
         >
           {HERO.subtitle}
         </p>
 
-        <ul
-          data-reveal
-          data-reveal-delay="360"
-          class="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm text-cream-100/80"
-        >
-          <li class="flex items-center gap-2">
-            <Award class="size-4 text-gold-400" />
-            {HERO.trustBadges[0]}
-          </li>
-          <li class="flex items-center gap-2">
-            <ShieldCheck class="size-4 text-gold-400" />
-            {HERO.trustBadges[1]}
-          </li>
-          <li class="flex items-center gap-2">
-            <Clock3 class="size-4 text-gold-400" />
-            {HERO.trustBadges[2]}
-          </li>
-        </ul>
-
+        <!-- Primary + Phone CTA, prominent oberhalb der Trust-Badges für Mobile-Above-The-Fold -->
         <div
           data-reveal
-          data-reveal-delay="480"
-          class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center"
+          data-reveal-delay="360"
+          class="mt-7 flex flex-col gap-2.5 sm:flex-row sm:items-center md:mt-9 md:gap-3"
         >
           <a
             href="#anfragen"
-            class="inline-flex items-center justify-center rounded-md bg-gold-500 px-6 py-3.5 text-base font-semibold text-navy-950 shadow-lg shadow-gold-500/20 transition-all hover:bg-gold-400 hover:shadow-xl hover:shadow-gold-500/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-300 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-950"
+            class="inline-flex h-12 items-center justify-center rounded-md bg-gold-500 px-6 text-base font-semibold text-navy-950 shadow-lg shadow-gold-500/20 transition-all hover:bg-gold-400 hover:shadow-xl hover:shadow-gold-500/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-300 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-950 md:h-[52px]"
           >
             {HERO.cta}
           </a>
           <a
             href={`tel:${SITE.phoneTel}`}
-            class="inline-flex items-center justify-center gap-2 rounded-md border border-cream-50/20 bg-white/5 px-6 py-3.5 text-base font-medium text-cream-50 backdrop-blur-sm transition-all hover:border-cream-50/40 hover:bg-white/10"
+            class="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-cream-50/20 bg-white/5 px-5 text-base font-medium text-cream-50 backdrop-blur-sm transition-all hover:border-cream-50/40 hover:bg-white/10 md:h-[52px]"
           >
             <Phone class="size-4" />
-            {SITE.phone}
+            <span class="sm:hidden">{SITE.phone}</span>
+            <span class="hidden sm:inline">{SITE.phone}</span>
           </a>
         </div>
 
-        <p
+        <!-- Trust badges nach CTA, damit Buttons höher liegen -->
+        <ul
           data-reveal
-          data-reveal-delay="600"
-          class="mt-8 text-sm text-cream-100/75"
+          data-reveal-delay="480"
+          class="mt-6 flex flex-wrap gap-x-5 gap-y-2.5 text-[13px] text-cream-100/80 md:mt-8 md:gap-x-6 md:gap-y-3 md:text-sm"
         >
-          Beratung in der Welterbe-Stadt · 25 Jahre Markterfahrung in Franken · Antwort innerhalb 24 h
-        </p>
+          <li class="flex items-center gap-1.5 md:gap-2">
+            <Award class="size-3.5 text-gold-400 md:size-4" />
+            {HERO.trustBadges[0]}
+          </li>
+          <li class="flex items-center gap-1.5 md:gap-2">
+            <ShieldCheck class="size-3.5 text-gold-400 md:size-4" />
+            {HERO.trustBadges[1]}
+          </li>
+          <li class="flex items-center gap-1.5 md:gap-2">
+            <Clock3 class="size-3.5 text-gold-400 md:size-4" />
+            {HERO.trustBadges[2]}
+          </li>
+        </ul>
       </div>
 
       <!-- Right column: Wizard -->
@@ -119,9 +117,8 @@ import BlurOrb from '@/components/util/BlurOrb.astro';
     </div>
   </div>
 
-  <!-- Decorative bottom fade into cream-50 -->
   <div
-    class="absolute inset-x-0 bottom-0 h-24"
+    class="absolute inset-x-0 bottom-0 h-20 md:h-24"
     aria-hidden="true"
     style="background: linear-gradient(to bottom, transparent, var(--color-cream-50));"
   >

@@ -9,13 +9,12 @@ import Logo from '@/components/Logo.astro';
   class="fixed inset-x-0 top-0 z-40 transition-all duration-300"
   data-transparent="true"
 >
-  <div class="container-content flex items-center justify-between gap-6 py-3 md:py-4">
-    <!-- Logo: tone wechselt via data-transparent -->
+  <div class="container-content flex items-center justify-between gap-3 py-2.5 md:gap-6 md:py-4">
     <div class="logo-dark">
-      <Logo variant="stacked" tone="dark" size="md" />
+      <Logo variant="stacked" tone="dark" size="responsive" />
     </div>
     <div class="logo-light">
-      <Logo variant="stacked" tone="light" size="md" />
+      <Logo variant="stacked" tone="light" size="responsive" />
     </div>
 
     <nav class="hidden items-center gap-8 lg:flex" aria-label="Hauptnavigation">
@@ -29,20 +28,31 @@ import Logo from '@/components/Logo.astro';
       ))}
     </nav>
 
-    <div class="flex items-center gap-3">
+    <div class="flex items-center gap-2 md:gap-3">
       <a
         href={`tel:${SITE.phoneTel}`}
-        class="hidden items-center gap-2 text-sm font-medium transition-colors sm:flex phone-link"
+        class="hidden items-center gap-2 text-sm font-medium transition-colors md:flex phone-link"
         aria-label={`Anrufen ${SITE.phone}`}
       >
         <Phone class="size-4" />
         <span>{SITE.phone}</span>
       </a>
+
+      <!-- Mobile-only icon-call (Touch-Target 44px) -->
+      <a
+        href={`tel:${SITE.phoneTel}`}
+        class="flex size-11 items-center justify-center rounded-md border transition-colors md:hidden phone-icon"
+        aria-label={`Anrufen ${SITE.phone}`}
+      >
+        <Phone class="size-[18px]" />
+      </a>
+
       <a
         href="#anfragen"
-        class="inline-flex items-center justify-center rounded-md bg-gold-500 px-4 py-2.5 text-sm font-semibold text-navy-950 shadow-sm transition-all hover:bg-gold-400 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-300 focus-visible:ring-offset-2"
+        class="inline-flex h-11 items-center justify-center rounded-md bg-gold-500 px-4 text-sm font-semibold text-navy-950 shadow-sm transition-all hover:bg-gold-400 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-300 focus-visible:ring-offset-2 md:px-5"
       >
-        Beratung anfragen
+        <span class="md:hidden">Anfragen</span>
+        <span class="hidden md:inline">Beratung anfragen</span>
       </a>
     </div>
   </div>
@@ -56,17 +66,17 @@ import Logo from '@/components/Logo.astro';
   }
   #site-header[data-transparent="true"] .logo-dark { display: none; }
   #site-header[data-transparent="true"] .logo-light { display: block; }
-  #site-header[data-transparent="true"] .nav-link {
-    color: rgb(245 239 226 / 0.85);
+  #site-header[data-transparent="true"] .nav-link { color: rgb(245 239 226 / 0.85); }
+  #site-header[data-transparent="true"] .nav-link:hover { color: rgb(232 199 122); }
+  #site-header[data-transparent="true"] .phone-link { color: rgb(245 239 226 / 0.85); }
+  #site-header[data-transparent="true"] .phone-link:hover { color: rgb(232 199 122); }
+  #site-header[data-transparent="true"] .phone-icon {
+    color: rgb(245 239 226 / 0.9);
+    border-color: rgb(245 239 226 / 0.25);
   }
-  #site-header[data-transparent="true"] .nav-link:hover {
+  #site-header[data-transparent="true"] .phone-icon:hover {
     color: rgb(232 199 122);
-  }
-  #site-header[data-transparent="true"] .phone-link {
-    color: rgb(245 239 226 / 0.85);
-  }
-  #site-header[data-transparent="true"] .phone-link:hover {
-    color: rgb(232 199 122);
+    border-color: rgb(232 199 122 / 0.5);
   }
 
   /* Scrolled (über Cream) → dunkle Texte und dunkles Logo */
@@ -78,17 +88,17 @@ import Logo from '@/components/Logo.astro';
   }
   #site-header[data-transparent="false"] .logo-dark { display: block; }
   #site-header[data-transparent="false"] .logo-light { display: none; }
-  #site-header[data-transparent="false"] .nav-link {
+  #site-header[data-transparent="false"] .nav-link { color: rgb(44 58 80); }
+  #site-header[data-transparent="false"] .nav-link:hover { color: rgb(20 32 54); }
+  #site-header[data-transparent="false"] .phone-link { color: rgb(44 58 80); }
+  #site-header[data-transparent="false"] .phone-link:hover { color: rgb(20 32 54); }
+  #site-header[data-transparent="false"] .phone-icon {
     color: rgb(44 58 80);
+    border-color: rgb(20 32 54 / 0.15);
   }
-  #site-header[data-transparent="false"] .nav-link:hover {
+  #site-header[data-transparent="false"] .phone-icon:hover {
     color: rgb(20 32 54);
-  }
-  #site-header[data-transparent="false"] .phone-link {
-    color: rgb(44 58 80);
-  }
-  #site-header[data-transparent="false"] .phone-link:hover {
-    color: rgb(20 32 54);
+    border-color: rgb(20 32 54 / 0.3);
   }
 </style>
 
@@ -96,7 +106,7 @@ import Logo from '@/components/Logo.astro';
   const header = document.getElementById('site-header');
   if (header) {
     const update = () => {
-      const scrolled = window.scrollY > 64;
+      const scrolled = window.scrollY > 48;
       header.dataset.transparent = String(!scrolled);
     };
     update();

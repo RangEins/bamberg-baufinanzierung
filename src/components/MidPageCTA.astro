@@ -5,7 +5,7 @@ import BlurOrb from '@/components/util/BlurOrb.astro';
 ---
 
 <section
-  class="relative isolate overflow-hidden bg-navy-950 py-24 md:py-32"
+  class="relative isolate overflow-hidden bg-navy-950 py-16 md:py-24 lg:py-32"
   aria-labelledby="midpage-cta-heading"
 >
   <!-- Particle Canvas (Desktop only) -->
@@ -33,25 +33,25 @@ import BlurOrb from '@/components/util/BlurOrb.astro';
       </p>
       <h2
         id="midpage-cta-heading"
-        class="mt-4 font-display text-4xl text-cream-50 sm:text-5xl md:text-6xl"
+        class="mt-3 font-display text-[2rem] leading-[1.1] text-cream-50 sm:text-5xl md:mt-4 md:text-6xl"
       >
         {MIDPAGE_CTA.headline}
       </h2>
-      <p class="mt-6 text-lg text-cream-100/80 md:text-xl">
+      <p class="mt-4 text-base text-cream-100/85 sm:text-lg md:mt-6 md:text-xl">
         {MIDPAGE_CTA.subline}
       </p>
 
-      <div class="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+      <div class="mt-8 flex flex-col items-center justify-center gap-2.5 sm:flex-row md:mt-10 md:gap-3">
         <a
           href="#anfragen"
-          class="inline-flex items-center justify-center gap-2 rounded-md bg-gold-500 px-7 py-3.5 text-base font-semibold text-navy-950 shadow-xl shadow-gold-500/20 transition-all hover:bg-gold-400 hover:shadow-2xl hover:shadow-gold-500/40"
+          class="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-gold-500 px-6 text-base font-semibold text-navy-950 shadow-xl shadow-gold-500/20 transition-all hover:bg-gold-400 hover:shadow-2xl hover:shadow-gold-500/40 md:h-[52px] md:px-7"
         >
           {MIDPAGE_CTA.cta}
           <ArrowRight class="size-4" />
         </a>
         <a
           href={`tel:${SITE.phoneTel}`}
-          class="inline-flex items-center justify-center gap-2 rounded-md border border-cream-50/20 bg-white/5 px-7 py-3.5 text-base font-medium text-cream-50 backdrop-blur-sm transition-all hover:border-cream-50/40 hover:bg-white/10"
+          class="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-cream-50/20 bg-white/5 px-6 text-base font-medium text-cream-50 backdrop-blur-sm transition-all hover:border-cream-50/40 hover:bg-white/10 md:h-[52px] md:px-7"
         >
           <Phone class="size-4" />
           {SITE.phone}

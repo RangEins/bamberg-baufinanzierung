@@ -174,7 +174,7 @@ export function LeadWizard() {
           </p>
           <a
             href="tel:+4991316238530"
-            className="mt-6 inline-flex items-center gap-2 rounded-md bg-navy-900 px-5 py-2.5 text-sm font-medium text-cream-50 hover:bg-navy-800"
+            className="mt-6 inline-flex h-12 items-center gap-2 rounded-md bg-navy-900 px-5 text-sm font-medium text-cream-50 hover:bg-navy-800"
           >
             <Phone className="size-4" />
             Direkt anrufen: 09131 6238530
@@ -187,17 +187,17 @@ export function LeadWizard() {
   return (
     <div className="overflow-hidden rounded-2xl border border-gold-300/20 bg-cream-50 shadow-2xl shadow-navy-950/40">
       {/* Header */}
-      <div className="border-b border-navy-100 bg-white px-6 py-5">
-        <div className="flex items-center justify-between">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-wider text-gold-600">
-              Lead-Wizard · 4 Schritte
+      <div className="border-b border-navy-100 bg-white px-5 py-4 md:px-6 md:py-5">
+        <div className="flex items-center justify-between gap-3">
+          <div className="min-w-0">
+            <p className="text-[11px] font-semibold uppercase tracking-wider text-gold-600 md:text-xs">
+              Anfrage · 4 Schritte
             </p>
-            <h3 className="mt-1 font-display text-lg text-navy-950">
+            <h3 className="mt-0.5 font-display text-base text-navy-950 md:mt-1 md:text-lg">
               Ihre kostenlose Erstberatung
             </h3>
           </div>
-          <div className="text-sm font-medium text-ink-muted">
+          <div className="shrink-0 text-sm font-medium text-ink-muted">
             {step + 1}/{totalSteps}
           </div>
         </div>
@@ -232,7 +232,7 @@ export function LeadWizard() {
         </div>
       </div>
 
-      <form ref={formRef} onSubmit={handleSubmit} className="px-6 py-6">
+      <form ref={formRef} onSubmit={handleSubmit} className="px-5 py-5 md:px-6 md:py-6">
         {/* Honeypot */}
         <input
           type="text"
@@ -252,7 +252,7 @@ export function LeadWizard() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -24 }}
             transition={{ duration: 0.25, ease: 'easeOut' }}
-            className="min-h-[280px]"
+            className="min-h-[240px] md:min-h-[280px]"
           >
             {step === 0 && (
               <fieldset>
@@ -270,7 +270,7 @@ export function LeadWizard() {
                         key={value}
                         type="button"
                         onClick={() => update('vorhaben', value)}
-                        className={`group flex items-center gap-3 rounded-lg border px-4 py-3.5 text-left transition-all ${
+                        className={`group flex min-h-[48px] items-center gap-3 rounded-lg border px-4 py-3 text-left transition-all ${
                           active
                             ? 'border-gold-500 bg-gold-50 shadow-sm'
                             : 'border-navy-100 bg-white hover:border-gold-300 hover:bg-gold-50/40'
@@ -368,7 +368,7 @@ export function LeadWizard() {
                 </p>
                 <div className="mt-5 space-y-3">
                   <div className="relative">
-                    <User className="pointer-events-none absolute left-3.5 top-3.5 size-4 text-ink-muted" />
+                    <User className="pointer-events-none absolute left-3.5 top-1/2 size-4 -translate-y-1/2 text-ink-muted" />
                     <input
                       type="text"
                       required
@@ -376,11 +376,11 @@ export function LeadWizard() {
                       placeholder="Name *"
                       value={form.name}
                       onChange={(e) => update('name', e.target.value)}
-                      className="w-full rounded-lg border border-navy-100 bg-white py-3 pl-10 pr-3 text-sm placeholder:text-ink-muted focus:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-300"
+                      className="h-12 w-full rounded-lg border border-navy-100 bg-white pl-10 pr-3 text-base placeholder:text-ink-muted focus:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-300"
                     />
                   </div>
                   <div className="relative">
-                    <Mail className="pointer-events-none absolute left-3.5 top-3.5 size-4 text-ink-muted" />
+                    <Mail className="pointer-events-none absolute left-3.5 top-1/2 size-4 -translate-y-1/2 text-ink-muted" />
                     <input
                       type="email"
                       required
@@ -388,30 +388,30 @@ export function LeadWizard() {
                       placeholder="E-Mail *"
                       value={form.email}
                       onChange={(e) => update('email', e.target.value)}
-                      className="w-full rounded-lg border border-navy-100 bg-white py-3 pl-10 pr-3 text-sm placeholder:text-ink-muted focus:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-300"
+                      className="h-12 w-full rounded-lg border border-navy-100 bg-white pl-10 pr-3 text-base placeholder:text-ink-muted focus:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-300"
                     />
                   </div>
                   <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                     <div className="relative">
-                      <Phone className="pointer-events-none absolute left-3.5 top-3.5 size-4 text-ink-muted" />
+                      <Phone className="pointer-events-none absolute left-3.5 top-1/2 size-4 -translate-y-1/2 text-ink-muted" />
                       <input
                         type="tel"
                         autoComplete="tel"
                         placeholder="Telefon"
                         value={form.phone}
                         onChange={(e) => update('phone', e.target.value)}
-                        className="w-full rounded-lg border border-navy-100 bg-white py-3 pl-10 pr-3 text-sm placeholder:text-ink-muted focus:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-300"
+                        className="h-12 w-full rounded-lg border border-navy-100 bg-white pl-10 pr-3 text-base placeholder:text-ink-muted focus:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-300"
                       />
                     </div>
                     <div className="relative">
-                      <MapPin className="pointer-events-none absolute left-3.5 top-3.5 size-4 text-ink-muted" />
+                      <MapPin className="pointer-events-none absolute left-3.5 top-1/2 size-4 -translate-y-1/2 text-ink-muted" />
                       <input
                         type="text"
                         autoComplete="address-level2"
                         placeholder="Ort"
                         value={form.ort}
                         onChange={(e) => update('ort', e.target.value)}
-                        className="w-full rounded-lg border border-navy-100 bg-white py-3 pl-10 pr-3 text-sm placeholder:text-ink-muted focus:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-300"
+                        className="h-12 w-full rounded-lg border border-navy-100 bg-white pl-10 pr-3 text-base placeholder:text-ink-muted focus:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-300"
                       />
                     </div>
                   </div>
@@ -420,7 +420,7 @@ export function LeadWizard() {
                     rows={3}
                     value={form.message}
                     onChange={(e) => update('message', e.target.value)}
-                    className="w-full rounded-lg border border-navy-100 bg-white px-3.5 py-3 text-sm placeholder:text-ink-muted focus:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-300"
+                    className="w-full rounded-lg border border-navy-100 bg-white px-3.5 py-3 text-base placeholder:text-ink-muted focus:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-300"
                   />
                   <label className="flex items-start gap-2.5 pt-1 text-xs text-ink-soft">
                     <input
@@ -460,7 +460,7 @@ export function LeadWizard() {
             type="button"
             onClick={back}
             disabled={step === 0}
-            className="inline-flex items-center gap-1.5 text-sm font-medium text-ink-muted transition-colors hover:text-navy-900 disabled:opacity-30"
+            className="inline-flex h-11 items-center gap-1.5 px-2 text-sm font-medium text-ink-muted transition-colors hover:text-navy-900 disabled:opacity-30"
           >
             <ArrowLeft className="size-4" />
             Zurück
@@ -471,7 +471,7 @@ export function LeadWizard() {
               type="button"
               onClick={next}
               disabled={!canAdvance}
-              className="inline-flex items-center gap-2 rounded-md bg-navy-900 px-5 py-2.5 text-sm font-semibold text-cream-50 transition-all hover:bg-navy-800 disabled:cursor-not-allowed disabled:opacity-40"
+              className="inline-flex h-11 items-center gap-2 rounded-md bg-navy-900 px-5 text-sm font-semibold text-cream-50 transition-all hover:bg-navy-800 disabled:cursor-not-allowed disabled:opacity-40"
             >
               Weiter
               <ArrowRight className="size-4" />
@@ -480,7 +480,7 @@ export function LeadWizard() {
             <button
               type="submit"
               disabled={!canAdvance || submitState === 'sending'}
-              className="inline-flex items-center gap-2 rounded-md bg-gold-500 px-5 py-2.5 text-sm font-semibold text-navy-950 shadow-sm transition-all hover:bg-gold-400 disabled:cursor-not-allowed disabled:opacity-40"
+              className="inline-flex h-11 items-center gap-2 rounded-md bg-gold-500 px-5 text-sm font-semibold text-navy-950 shadow-sm transition-all hover:bg-gold-400 disabled:cursor-not-allowed disabled:opacity-40"
             >
               {submitState === 'sending' ? (
                 <>

@@ -93,6 +93,25 @@
     background-color: var(--color-gold-300);
     color: var(--color-navy-950);
   }
+
+  /* iOS Safari verhindert Auto-Zoom beim Focus auf Form-Elemente,
+     wenn deren Font-Size >= 16px ist. Erzwingen wir global. */
+  @media (max-width: 768px) {
+    input:not([type='range']),
+    select,
+    textarea {
+      font-size: max(16px, 1rem);
+    }
+  }
+
+  /* Bessere Touch-Targets: native interactive Elements min 44px */
+  @media (hover: none) and (pointer: coarse) {
+    button:not(.hp-field),
+    [role='button'],
+    a.btn-touch {
+      min-height: 44px;
+    }
+  }
 }
 
 @layer utilities {

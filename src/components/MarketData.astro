@@ -5,7 +5,7 @@ import { MARKET_DATA_STADT, MARKET_DATA_LANDKREIS, MARKET_SOURCES } from '@/lib/
 
 <section
   id="marktdaten"
-  class="bg-cream-50 py-20 md:py-28"
+  class="bg-cream-50 py-16 md:py-24 lg:py-28"
   aria-labelledby="marktdaten-heading"
 >
   <div class="container-content">
@@ -15,17 +15,17 @@ import { MARKET_DATA_STADT, MARKET_DATA_LANDKREIS, MARKET_SOURCES } from '@/lib/
       </p>
       <h2
         id="marktdaten-heading"
-        class="mt-3 font-display text-3xl text-navy-950 sm:text-4xl md:text-5xl"
+        class="mt-3 font-display text-[1.875rem] leading-tight text-navy-950 sm:text-4xl md:text-5xl"
       >
         Immobilienpreise Bamberg – Stadt &amp; Landkreis im Überblick.
       </h2>
-      <p class="mt-4 text-lg text-ink-soft">
+      <p class="mt-3 text-base text-ink-soft sm:text-lg md:mt-4">
         Aktuelle Preisspannen für Häuser und Wohnungen in der Stadt sowie in den größten
         Landkreis-Gemeinden. Solide Datengrundlage statt Bauchgefühl.
       </p>
     </div>
 
-    <div class="mt-14 grid gap-8 lg:grid-cols-2 lg:gap-10">
+    <div class="mt-10 grid gap-6 md:mt-14 lg:grid-cols-2 lg:gap-10">
       <!-- Stadt -->
       <div
         data-reveal
@@ -47,17 +47,17 @@ import { MARKET_DATA_STADT, MARKET_DATA_LANDKREIS, MARKET_SOURCES } from '@/lib/
           <table class="w-full">
             <thead>
               <tr class="border-b border-navy-100 bg-cream-50/60 text-left">
-                <th class="px-6 py-3 text-xs font-semibold uppercase tracking-wider text-ink-muted">Segment</th>
-                <th class="px-6 py-3 text-right text-xs font-semibold uppercase tracking-wider text-ink-muted">Durchschnitt</th>
-                <th class="px-6 py-3 text-right text-xs font-semibold uppercase tracking-wider text-ink-muted">Spanne</th>
+                <th class="px-4 py-3 text-xs font-semibold uppercase tracking-wider text-ink-muted md:px-6">Segment</th>
+                <th class="px-4 py-3 text-right text-xs font-semibold uppercase tracking-wider text-ink-muted md:px-6">Durchschnitt</th>
+                <th class="px-4 py-3 text-right text-xs font-semibold uppercase tracking-wider text-ink-muted md:px-6">Spanne</th>
               </tr>
             </thead>
             <tbody class="divide-y divide-navy-100">
               {MARKET_DATA_STADT.rows.map((row) => (
                 <tr class="transition-colors hover:bg-cream-50/40">
-                  <td class="px-6 py-4 font-medium text-navy-950">{row.segment}</td>
-                  <td class="px-6 py-4 text-right font-display text-lg text-gold-700">{row.avg}</td>
-                  <td class="px-6 py-4 text-right text-sm text-ink-soft">{row.range}</td>
+                  <td class="px-4 py-3.5 font-medium text-navy-950 md:px-6 md:py-4">{row.segment}</td>
+                  <td class="px-4 py-3.5 text-right font-display text-base text-gold-700 md:px-6 md:py-4 md:text-lg">{row.avg}</td>
+                  <td class="px-4 py-3.5 text-right text-xs text-ink-soft md:px-6 md:py-4 md:text-sm">{row.range}</td>
                 </tr>
               ))}
             </tbody>
@@ -105,9 +105,9 @@ import { MARKET_DATA_STADT, MARKET_DATA_LANDKREIS, MARKET_SOURCES } from '@/lib/
             <tbody class="divide-y divide-navy-100">
               {MARKET_DATA_LANDKREIS.rows.map((row) => (
                 <tr class="transition-colors hover:bg-cream-50/40">
-                  <td class="px-6 py-4 font-medium text-navy-950">{row.segment}</td>
-                  <td class="px-6 py-4 text-right font-display text-lg text-gold-700">{row.avg}</td>
-                  <td class="px-6 py-4 text-right text-sm text-ink-soft">{row.range}</td>
+                  <td class="px-4 py-3.5 font-medium text-navy-950 md:px-6 md:py-4">{row.segment}</td>
+                  <td class="px-4 py-3.5 text-right font-display text-base text-gold-700 md:px-6 md:py-4 md:text-lg">{row.avg}</td>
+                  <td class="px-4 py-3.5 text-right text-xs text-ink-soft md:px-6 md:py-4 md:text-sm">{row.range}</td>
                 </tr>
               ))}
             </tbody>

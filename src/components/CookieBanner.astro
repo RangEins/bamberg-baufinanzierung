@@ -22,7 +22,7 @@ import { ShieldCheck } from '@lucide/astro';
   aria-hidden="true"
   class="fixed inset-x-3 bottom-3 z-50 mx-auto hidden max-w-3xl rounded-2xl border border-navy-100 bg-cream-50 shadow-2xl shadow-navy-950/20 sm:inset-x-4 sm:bottom-4"
 >
-  <div class="flex flex-col gap-4 p-5 md:flex-row md:items-center md:gap-6 md:p-6">
+  <div class="flex flex-col gap-3 p-4 md:flex-row md:items-center md:gap-6 md:p-6">
     <div class="flex items-start gap-3 md:flex-1">
       <div class="flex size-9 shrink-0 items-center justify-center rounded-lg bg-gold-100">
         <ShieldCheck class="size-5 text-gold-700" strokeWidth={1.75} />
@@ -31,7 +31,7 @@ import { ShieldCheck } from '@lucide/astro';
         <p class="font-semibold text-navy-950">
           Datenschutz auf dieser Seite
         </p>
-        <p class="mt-1">
+        <p class="mt-1 text-[13px] md:text-sm">
           Wir verwenden ausschließlich technisch notwendige Speicher-Mechanismen.
           Es findet <strong>kein Tracking</strong> und <strong>keine Web-Analyse</strong> statt.
           {' '}
@@ -45,18 +45,18 @@ import { ShieldCheck } from '@lucide/astro';
       </div>
     </div>
 
-    <div class="flex shrink-0 items-center gap-2 md:gap-3">
+    <div class="grid shrink-0 grid-cols-2 gap-2 md:flex md:items-center md:gap-3">
       <button
         type="button"
         data-cookie-action="essential"
-        class="inline-flex h-10 items-center justify-center rounded-md border border-navy-200 px-4 text-sm font-medium text-navy-900 transition-colors hover:bg-navy-50"
+        class="inline-flex h-11 items-center justify-center rounded-md border border-navy-200 px-4 text-sm font-medium text-navy-900 transition-colors hover:bg-navy-50"
       >
         Nur notwendig
       </button>
       <button
         type="button"
         data-cookie-action="accept"
-        class="inline-flex h-10 items-center justify-center rounded-md bg-gold-500 px-4 text-sm font-semibold text-navy-950 shadow-sm transition-all hover:bg-gold-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-300 focus-visible:ring-offset-2"
+        class="inline-flex h-11 items-center justify-center rounded-md bg-gold-500 px-4 text-sm font-semibold text-navy-950 shadow-sm transition-all hover:bg-gold-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-300 focus-visible:ring-offset-2"
       >
         Verstanden
       </button>
