@@ -7,9 +7,8 @@ import BlurOrb from '@/components/util/BlurOrb.astro';
 
 <section
   id="hero"
-  class="relative isolate overflow-hidden bg-navy-950 pt-24 pb-14 md:pt-32 md:pb-20 lg:pt-40 lg:pb-28"
+  class="relative isolate overflow-hidden bg-navy-950 pt-24 pb-14 md:pt-28 md:pb-16 lg:pt-28 lg:pb-20"
 >
-  <!-- Decorative background -->
   <div
     class="absolute inset-0 -z-10"
     aria-hidden="true"
@@ -28,7 +27,7 @@ import BlurOrb from '@/components/util/BlurOrb.astro';
   </div>
 
   <div class="container-content">
-    <div class="grid items-start gap-10 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
+    <div class="grid items-start gap-10 lg:grid-cols-[1.05fr_1fr] lg:gap-12">
       <!-- Left column: copy -->
       <div class="text-cream-50">
         <div
@@ -43,25 +42,24 @@ import BlurOrb from '@/components/util/BlurOrb.astro';
         <h1
           data-reveal
           data-reveal-delay="120"
-          class="mt-5 font-display text-[2rem] font-medium leading-[1.08] tracking-tight sm:text-5xl md:mt-6 md:text-6xl lg:text-[3.75rem]"
+          class="mt-4 font-display text-[2rem] font-medium leading-[1.05] tracking-tight sm:text-[2.75rem] md:mt-5 md:text-[3rem] lg:text-[3.25rem] xl:text-[3.5rem]"
         >
           <span class="text-cream-50">{HERO.headline}</span>
-          <span class="mt-1.5 block text-gold-400 md:mt-2">{HERO.headlineAccent}</span>
+          <span class="mt-1 block text-gold-400 md:mt-1.5">{HERO.headlineAccent}</span>
         </h1>
 
         <p
           data-reveal
           data-reveal-delay="240"
-          class="mt-4 max-w-xl text-[15px] leading-relaxed text-cream-100/85 sm:text-base md:mt-6 md:text-lg lg:text-xl"
+          class="mt-4 max-w-xl text-[15px] leading-relaxed text-cream-100/85 sm:text-base md:mt-5 md:text-lg"
         >
           {HERO.subtitle}
         </p>
 
-        <!-- Primary + Phone CTA, prominent oberhalb der Trust-Badges für Mobile-Above-The-Fold -->
         <div
           data-reveal
           data-reveal-delay="360"
-          class="mt-7 flex flex-col gap-2.5 sm:flex-row sm:items-center md:mt-9 md:gap-3"
+          class="mt-6 flex flex-col gap-2.5 sm:flex-row sm:items-center md:mt-7 md:gap-3"
         >
           <a
             href="#anfragen"
@@ -74,16 +72,14 @@ import BlurOrb from '@/components/util/BlurOrb.astro';
             class="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-cream-50/20 bg-white/5 px-5 text-base font-medium text-cream-50 backdrop-blur-sm transition-all hover:border-cream-50/40 hover:bg-white/10 md:h-[52px]"
           >
             <Phone class="size-4" />
-            <span class="sm:hidden">{SITE.phone}</span>
-            <span class="hidden sm:inline">{SITE.phone}</span>
+            <span>{SITE.phone}</span>
           </a>
         </div>
 
-        <!-- Trust badges nach CTA, damit Buttons höher liegen -->
         <ul
           data-reveal
           data-reveal-delay="480"
-          class="mt-6 flex flex-wrap gap-x-5 gap-y-2.5 text-[13px] text-cream-100/80 md:mt-8 md:gap-x-6 md:gap-y-3 md:text-sm"
+          class="mt-5 flex flex-wrap gap-x-5 gap-y-2.5 text-[13px] text-cream-100/80 md:mt-6 md:gap-x-6 md:gap-y-3 md:text-sm"
         >
           <li class="flex items-center gap-1.5 md:gap-2">
             <Award class="size-3.5 text-gold-400 md:size-4" />
@@ -100,11 +96,11 @@ import BlurOrb from '@/components/util/BlurOrb.astro';
         </ul>
       </div>
 
-      <!-- Right column: Wizard -->
+      <!-- Right column: Wizard — rückt mit Negative-Margin hoch (Desktop), startet näher am Header -->
       <div
         data-reveal
         data-reveal-delay="320"
-        class="relative lg:sticky lg:top-28"
+        class="relative lg:-mt-6 lg:sticky lg:top-24"
         id="anfragen"
       >
         <div

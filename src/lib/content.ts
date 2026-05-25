@@ -57,7 +57,7 @@ export const HERO = {
   headline: 'Ihre Baufinanzierung für Bamberg.',
   headlineAccent: 'Persönlich. Unabhängig. Kostenfrei.',
   subtitle:
-    'Wir vergleichen über 600 Banken für Sie – von der Welterbe-Altstadt bis Hirschaid, Hallstadt und Memmelsdorf. 25 Jahre Marktkenntnis in Franken, jede Anfrage wird persönlich beantwortet.',
+    'Über 600 Banken im Vergleich – von der Welterbe-Altstadt bis in den Landkreis. Persönliche Antwort innerhalb von 24 Stunden.',
   trustBadges: [
     '600+ Banken im Vergleich',
     '25 Jahre Markterfahrung',
