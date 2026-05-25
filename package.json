@@ -19,7 +19,6 @@
     "@lucide/astro": "^1.16.0",
     "@tailwindcss/vite": "^4.1.18",
     "astro": "latest",
-    "framer-motion": "latest",
     "gsap": "latest",
     "lucide-react": "latest",
     "react": "^19.0.0",

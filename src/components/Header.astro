@@ -91,11 +91,19 @@ import Logo from '@/components/Logo.astro';
     border-color: rgb(232 199 122 / 0.5);
   }
 
+  /* Scrolled-Header: auf Mobile vollopaker Background (kein backdrop-blur,
+     der waere auf Mobile-GPU teuer und macht das Scrollen + Form-Tippen ruckelig).
+     Ab md greift wieder backdrop-blur fuer den glasartigen Look. */
   #site-header[data-transparent="false"] {
-    background-color: rgb(251 248 241 / 0.94);
-    backdrop-filter: saturate(180%) blur(14px);
+    background-color: rgb(251 248 241 / 0.98);
     border-bottom: 1px solid rgb(20 32 54 / 0.08);
     box-shadow: 0 1px 0 rgb(20 32 54 / 0.02);
+  }
+  @media (min-width: 768px) {
+    #site-header[data-transparent="false"] {
+      background-color: rgb(251 248 241 / 0.94);
+      backdrop-filter: saturate(180%) blur(12px);
+    }
   }
   #site-header[data-transparent="false"] .logo-dark { display: block; }
   #site-header[data-transparent="false"] .logo-light { display: none; }

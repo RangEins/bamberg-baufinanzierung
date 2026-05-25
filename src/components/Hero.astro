@@ -103,8 +103,9 @@ import BlurOrb from '@/components/util/BlurOrb.astro';
         class="relative lg:-mt-6 lg:sticky lg:top-24"
         id="anfragen"
       >
+        <!-- Gold-Glow hinter dem Wizard nur ab md sichtbar (blur-2xl ist auf Mobile-GPU teuer) -->
         <div
-          class="absolute -inset-4 -z-10 rounded-3xl bg-gold-500/10 blur-2xl"
+          class="absolute -inset-4 -z-10 hidden rounded-3xl bg-gold-500/10 md:block md:blur-2xl"
           aria-hidden="true"
         >
         </div>

@@ -1,5 +1,4 @@
 import { useState, useMemo, useCallback, useRef, type FormEvent } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import {
   Home,
   Building2,
@@ -216,23 +215,22 @@ export function LeadWizard() {
           </div>
         </div>
 
-        {/* Progress */}
+        {/* Progress (CSS-only Transition, kein Framer Motion) */}
         <div className="mt-4 flex gap-1.5">
-          {STEP_LABELS.map((label, idx) => (
-            <div
-              key={label}
-              className="h-1 flex-1 overflow-hidden rounded-full bg-navy-100"
-            >
-              <motion.div
-                initial={{ width: '0%' }}
-                animate={{
-                  width: idx < step ? '100%' : idx === step ? `${progress}%` : '0%',
-                }}
-                transition={{ duration: 0.4, ease: 'easeOut' }}
-                className="h-full bg-gold-500"
-              />
-            </div>
-          ))}
+          {STEP_LABELS.map((label, idx) => {
+            const width = idx < step ? '100%' : idx === step ? `${progress}%` : '0%';
+            return (
+              <div
+                key={label}
+                className="h-1 flex-1 overflow-hidden rounded-full bg-navy-100"
+              >
+                <div
+                  className="h-full bg-gold-500 transition-[width] duration-300 ease-out"
+                  style={{ width }}
+                />
+              </div>
+            );
+          })}
         </div>
         <div className="mt-2 flex justify-between text-[10px] uppercase tracking-wider text-ink-muted">
           {STEP_LABELS.map((label, idx) => (
@@ -259,15 +257,11 @@ export function LeadWizard() {
           aria-hidden="true"
         />
 
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={step}
-            initial={{ opacity: 0, x: 24 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -24 }}
-            transition={{ duration: 0.25, ease: 'easeOut' }}
-            className="min-h-[240px] md:min-h-[280px]"
-          >
+        {/* Step-Content: CSS-Fade via key-basiertem Remount, kein Framer Motion */}
+        <div
+          key={step}
+          className="min-h-[240px] animate-step-in md:min-h-[280px]"
+        >
             {step === 0 && (
               <fieldset>
                 <legend className="font-display text-xl text-navy-950">
@@ -460,8 +454,7 @@ export function LeadWizard() {
                 </div>
               </fieldset>
             )}
-          </motion.div>
-        </AnimatePresence>
+        </div>
 
         {errorMessage && (
           <p className="mt-4 rounded-md bg-red-50 px-4 py-3 text-sm text-red-700">

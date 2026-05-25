@@ -169,6 +169,26 @@
   transform: translateY(0);
 }
 
+/* Wizard-Step Transition (ersetzt Framer Motion AnimatePresence) */
+@keyframes step-in {
+  from {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.animate-step-in {
+  animation: step-in 0.22s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-step-in {
+    animation: none;
+  }
+}
+
 /* Honeypot field — visually hidden but accessible */
 .hp-field {
   position: absolute;
