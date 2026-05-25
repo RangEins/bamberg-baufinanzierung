@@ -40,25 +40,8 @@ import Logo from '@/components/Logo.astro';
       ))}
     </nav>
 
-    <!-- Spalte 3: Avatar + Phone + CTA (rechts) -->
+    <!-- Spalte 3: Phone + CTA (rechts) -->
     <div class="flex items-center gap-2 justify-self-end md:gap-3">
-      <!-- Advisor-Avatar: ab md sichtbar, unaufdringliches Trust-Signal -->
-      <a
-        href="#anfragen"
-        class="hidden md:block advisor-avatar-link"
-        aria-label="Christoph Altemeier – Ihr Ansprechpartner"
-      >
-        <img
-          src="/profilbild.webp"
-          alt="Christoph Altemeier"
-          width="40"
-          height="40"
-          loading="eager"
-          decoding="async"
-          class="size-10 rounded-full border-2 object-cover transition-transform hover:scale-105 advisor-avatar"
-        />
-      </a>
-
       <a
         href={`tel:${SITE.phoneTel}`}
         class="hidden items-center gap-2 text-sm font-medium transition-colors xl:flex phone-link"
@@ -107,9 +90,6 @@ import Logo from '@/components/Logo.astro';
     color: rgb(232 199 122);
     border-color: rgb(232 199 122 / 0.5);
   }
-  #site-header[data-transparent="true"] .advisor-avatar {
-    border-color: rgb(232 199 122 / 0.5);
-  }
 
   #site-header[data-transparent="false"] {
     background-color: rgb(251 248 241 / 0.94);
@@ -130,9 +110,6 @@ import Logo from '@/components/Logo.astro';
   #site-header[data-transparent="false"] .phone-icon:hover {
     color: rgb(20 32 54);
     border-color: rgb(20 32 54 / 0.3);
-  }
-  #site-header[data-transparent="false"] .advisor-avatar {
-    border-color: rgb(201 166 70 / 0.6);
   }
 </style>
 

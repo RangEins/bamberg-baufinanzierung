@@ -159,13 +159,23 @@ export function LeadWizard() {
     return (
       <div className="rounded-2xl border border-gold-300/30 bg-cream-50 p-8 shadow-2xl shadow-navy-950/30">
         <div className="flex flex-col items-center text-center">
-          <div className="flex size-16 items-center justify-center rounded-full bg-gold-100">
-            <CheckCircle2 className="size-8 text-gold-600" strokeWidth={2.5} />
+          <div className="relative">
+            <img
+              src="/profilbild.webp"
+              alt="Christoph Altemeier"
+              width="96"
+              height="96"
+              decoding="async"
+              className="size-24 rounded-full object-cover ring-4 ring-gold-500/30"
+            />
+            <span className="absolute bottom-0 right-0 flex size-7 items-center justify-center rounded-full bg-gold-500 ring-4 ring-cream-50">
+              <CheckCircle2 className="size-4 text-navy-950" strokeWidth={3} />
+            </span>
           </div>
           <h3 className="mt-6 font-display text-2xl text-navy-950">Vielen Dank für Ihre Anfrage.</h3>
           <p className="mt-3 text-ink-soft">
-            Wir melden uns innerhalb von 24 Stunden persönlich – per E-Mail oder telefonisch,
-            ganz wie Sie es wünschen.
+            Christoph Altemeier meldet sich innerhalb von 24 Stunden persönlich –
+            per E-Mail oder telefonisch, ganz wie Sie es wünschen.
           </p>
           <a
             href="tel:+4991316238530"
@@ -183,10 +193,19 @@ export function LeadWizard() {
     <div className="overflow-hidden rounded-2xl border border-gold-300/20 bg-cream-50 shadow-2xl shadow-navy-950/40">
       {/* Header */}
       <div className="border-b border-navy-100 bg-white px-5 py-4 md:px-6 md:py-5">
-        <div className="flex items-center justify-between gap-3">
-          <div className="min-w-0">
+        <div className="flex items-center gap-3 md:gap-4">
+          <img
+            src="/profilbild.webp"
+            alt="Christoph Altemeier"
+            width="48"
+            height="48"
+            loading="eager"
+            decoding="async"
+            className="size-11 shrink-0 rounded-full object-cover ring-2 ring-gold-500/40 md:size-12"
+          />
+          <div className="min-w-0 flex-1">
             <p className="text-[11px] font-semibold uppercase tracking-wider text-gold-600 md:text-xs">
-              Anfrage · 4 Schritte
+              Ihr Ansprechpartner · Christoph Altemeier
             </p>
             <h3 className="mt-0.5 font-display text-base text-navy-950 md:mt-1 md:text-lg">
               Ihre kostenlose Erstberatung
