@@ -6,26 +6,21 @@ import Logo from '@/components/Logo.astro';
 
 <header
   id="site-header"
-  class="fixed inset-x-0 top-0 z-40 transition-all duration-300"
+  class="fixed inset-x-0 top-0 z-40 transition-colors duration-300"
   data-transparent="true"
 >
   <!--
-    Layout-Logik:
-    Mobile/Tablet: grid-cols-[auto_1fr_auto] — Logo links, Spacer, Right-Cluster rechts
-    Desktop (lg+): grid-cols-3 — drei gleich breite Spalten, Nav in der Mitte
-       => Nav sitzt exakt auf der Viewport-Mitte, unabhängig von Logo- und
-          Right-Cluster-Breite. Das ist der Grund, warum justify-between mit
-          flex-1 nicht ausreicht, wenn die Aussenspalten unterschiedlich breit sind.
+    Grid-Layout (3 Spalten ab lg, sonst auto/1fr/auto).
+    safe-area-inset-top wird per CSS unten gehandhabt, damit iOS Safari
+    den Header sauber unter die Statusleiste rueckt.
   -->
   <div class="container-content grid h-16 items-center gap-4 grid-cols-[auto_1fr_auto] md:h-[76px] md:gap-6 lg:grid-cols-3 lg:gap-8">
 
-    <!-- Spalte 1: Logo -->
     <div class="justify-self-start">
       <div class="logo-dark"><Logo variant="stacked" tone="dark" size="responsive" /></div>
       <div class="logo-light"><Logo variant="stacked" tone="light" size="responsive" /></div>
     </div>
 
-    <!-- Spalte 2: Nav (nur lg+, mittig im Viewport) -->
     <nav
       class="hidden items-center justify-center gap-6 lg:flex lg:justify-self-center xl:gap-9"
       aria-label="Hauptnavigation"
@@ -40,7 +35,6 @@ import Logo from '@/components/Logo.astro';
       ))}
     </nav>
 
-    <!-- Spalte 3: Phone + CTA (rechts) -->
     <div class="flex items-center gap-2 justify-self-end md:gap-3">
       <a
         href={`tel:${SITE.phoneTel}`}
@@ -71,7 +65,20 @@ import Logo from '@/components/Logo.astro';
   </div>
 </header>
 
+<!-- Sentinel oberhalb des Hero — IntersectionObserver triggert Header-State,
+     ohne Scroll-Event-Spam. Sentinel-Hoehe entscheidet ueber den Threshold. -->
+<div
+  id="header-sentinel"
+  aria-hidden="true"
+  class="pointer-events-none absolute left-0 top-0 h-12 w-px"
+></div>
+
 <style>
+  /* iOS Safari Safe-Area: Header rueckt unter die Statusleiste */
+  #site-header {
+    padding-top: env(safe-area-inset-top, 0);
+  }
+
   #site-header[data-transparent="true"] {
     background-color: transparent;
     backdrop-filter: none;
@@ -92,8 +99,8 @@ import Logo from '@/components/Logo.astro';
   }
 
   /* Scrolled-Header: auf Mobile vollopaker Background (kein backdrop-blur,
-     der waere auf Mobile-GPU teuer und macht das Scrollen + Form-Tippen ruckelig).
-     Ab md greift wieder backdrop-blur fuer den glasartigen Look. */
+     spart Repaints + Compositing-Cost auf Mobile-GPU). Ab md greift wieder
+     der Glas-Look mit Backdrop-Blur. */
   #site-header[data-transparent="false"] {
     background-color: rgb(251 248 241 / 0.98);
     border-bottom: 1px solid rgb(20 32 54 / 0.08);
@@ -122,11 +129,28 @@ import Logo from '@/components/Logo.astro';
 </style>
 
 <script>
+  /**
+   * Header-State via IntersectionObserver auf einem Sentinel.
+   * Kein Scroll-Event-Spam, keine ständigen Repaints —
+   * Browser feuert den Callback nur, wenn der Sentinel die Viewport-
+   * Grenze kreuzt. Massiv weniger Mobile-Cost als ein Scroll-Listener.
+   */
   const header = document.getElementById('site-header');
-  if (header) {
+  const sentinel = document.getElementById('header-sentinel');
+
+  if (header && sentinel && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        // intersecting === true wenn Sentinel im Viewport → Page ist oben
+        header.dataset.transparent = String(entries[0].isIntersecting);
+      },
+      { threshold: 0 },
+    );
+    io.observe(sentinel);
+  } else if (header) {
+    // Fallback ohne IntersectionObserver: ein einziger scroll-Listener
     const update = () => {
-      const scrolled = window.scrollY > 32;
-      header.dataset.transparent = String(!scrolled);
+      header.dataset.transparent = String(window.scrollY <= 32);
     };
     update();
     window.addEventListener('scroll', update, { passive: true });
