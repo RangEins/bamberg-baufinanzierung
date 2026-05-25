@@ -63,7 +63,7 @@ export const HERO = {
     '25 Jahre Markterfahrung',
     'Antwort in 24 Stunden',
   ],
-  cta: 'Kostenlose Erstberatung anfragen',
+  cta: 'Kostenlos Konditionen vergleichen',
   ctaSecondary: 'Direkt anrufen',
 } as const;
 
