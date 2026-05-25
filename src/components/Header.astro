@@ -9,16 +9,18 @@ import Logo from '@/components/Logo.astro';
   class="fixed inset-x-0 top-0 z-40 transition-all duration-300"
   data-transparent="true"
 >
-  <div class="container-content flex items-center justify-between gap-4 py-3 md:gap-8 md:py-5">
-    <div class="logo-dark">
+  <div class="container-content flex h-16 items-center gap-4 md:h-[76px] md:gap-6 lg:gap-8">
+    <!-- Logo (mit fester Mindestbreite — verhindert Squeeze auf engen Viewports) -->
+    <div class="logo-dark shrink-0">
       <Logo variant="stacked" tone="dark" size="responsive" />
     </div>
-    <div class="logo-light">
+    <div class="logo-light shrink-0">
       <Logo variant="stacked" tone="light" size="responsive" />
     </div>
 
+    <!-- Nav: zentriert zwischen Logo und CTA-Block, nur Desktop -->
     <nav
-      class="hidden flex-1 items-center justify-center gap-7 lg:flex xl:gap-9"
+      class="hidden flex-1 items-center justify-center gap-6 lg:flex xl:gap-9"
       aria-label="Hauptnavigation"
     >
       {NAV_ITEMS.map((item) => (
@@ -31,10 +33,15 @@ import Logo from '@/components/Logo.astro';
       ))}
     </nav>
 
-    <div class="flex items-center gap-2.5 md:gap-4">
+    <!-- Spacer für mobile/tablet (push CTA nach rechts wenn keine Nav da) -->
+    <div class="flex-1 lg:hidden"></div>
+
+    <!-- Right cluster -->
+    <div class="flex shrink-0 items-center gap-2 md:gap-3">
+      <!-- Phone als Text nur ab xl (>=1280px), darunter Icon-Variante -->
       <a
         href={`tel:${SITE.phoneTel}`}
-        class="hidden items-center gap-2 text-sm font-medium transition-colors md:flex phone-link"
+        class="hidden items-center gap-2 text-sm font-medium transition-colors xl:flex phone-link"
         aria-label={`Anrufen ${SITE.phone}`}
       >
         <Phone class="size-4" />
@@ -43,15 +50,16 @@ import Logo from '@/components/Logo.astro';
 
       <a
         href={`tel:${SITE.phoneTel}`}
-        class="flex size-11 items-center justify-center rounded-md border transition-colors md:hidden phone-icon"
+        class="flex size-11 items-center justify-center rounded-md border transition-colors xl:hidden phone-icon"
         aria-label={`Anrufen ${SITE.phone}`}
       >
         <Phone class="size-[18px]" />
       </a>
 
+      <!-- CTA: kompakter Text auf Mobile, voller Text ab md -->
       <a
         href="#anfragen"
-        class="inline-flex h-11 items-center justify-center rounded-md bg-gold-500 px-4 text-sm font-semibold text-navy-950 shadow-sm transition-all hover:bg-gold-400 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-300 focus-visible:ring-offset-2 md:h-12 md:px-5"
+        class="inline-flex h-11 items-center justify-center whitespace-nowrap rounded-md bg-gold-500 px-4 text-sm font-semibold text-navy-950 shadow-sm transition-all hover:bg-gold-400 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-300 focus-visible:ring-offset-2 md:h-12 md:px-5"
       >
         <span class="md:hidden">Anfragen</span>
         <span class="hidden md:inline">Beratung anfragen</span>
@@ -108,7 +116,7 @@ import Logo from '@/components/Logo.astro';
   const header = document.getElementById('site-header');
   if (header) {
     const update = () => {
-      const scrolled = window.scrollY > 48;
+      const scrolled = window.scrollY > 32;
       header.dataset.transparent = String(!scrolled);
     };
     update();

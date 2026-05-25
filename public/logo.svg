@@ -1,15 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 80" role="img" aria-label="Baufinanzierung Bamberg">
-  <rect x="0" y="14" width="4" height="52" rx="2" fill="#C9A646"/>
-  <text x="16" y="34"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 80" role="img" aria-label="Baufinanzierung Bamberg">
+  <text x="0" y="28"
         font-family="Inter, system-ui, sans-serif"
         font-size="11"
-        font-weight="500"
-        letter-spacing="2.4"
+        font-weight="600"
+        letter-spacing="2.6"
         fill="#5A6A82">BAUFINANZIERUNG</text>
-  <text x="16" y="62"
+  <text x="0" y="62"
         font-family="Fraunces, Georgia, serif"
-        font-size="32"
-        font-weight="500"
-        letter-spacing="-0.5"
+        font-size="34"
+        font-weight="600"
+        letter-spacing="-0.6"
         fill="#0A1424">Bamberg</text>
+  <circle cx="170" cy="56" r="4.5" fill="#C9A646"/>
 </svg>

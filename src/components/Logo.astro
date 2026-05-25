@@ -1,14 +1,14 @@
 ---
 /**
- * Eigenständige Wortmarke "Baufinanzierung Bamberg".
+ * Wortmarke "Baufinanzierung Bamberg" – reine Typografie.
  *
- * Editorial-orientierter Wordmark mit vertikaler Goldlinie als
- * Struktur-Element (Masthead-Stil aus dem Verlagswesen).
- * Keine Icon-Spielerei – die Fraunces-Serife trägt die Markenidentität.
+ * Editorial-Masthead-Logik:
+ *   • Top: BAUFINANZIERUNG – kleine, gesperrte Versalien (Service-Bezeichnung)
+ *   • Bottom: Bamberg – Fraunces Serife, prominent (Ortsname als Träger der Identität)
+ *   • Gold-Punkt nach "Bamberg" als einziger Akzent (Punkt = Standort-Reference)
  *
- * variants:
- *   stacked  – zwei Zeilen, default für Header und Footer
- *   inline   – einzeilig, für sehr kompakte Stellen
+ * Keine Icon-Mark, kein Quadrat, keine vertikale Linie.
+ * Die Fraunces-Serife ist der Hero – die trägt die Marke.
  */
 
 interface Props {
@@ -29,57 +29,56 @@ const {
 
 const isResponsive = size === 'responsive';
 
-const barClass = isResponsive
-  ? 'h-9 w-[3px] md:h-11 md:w-[3px]'
-  : { sm: 'h-8 w-[2.5px]', md: 'h-10 w-[3px]', lg: 'h-12 w-[3px]' }[
-      size as 'sm' | 'md' | 'lg'
-    ];
-
 const eyebrowClass = isResponsive
-  ? 'text-[10px] tracking-[0.18em] md:text-[11px] md:tracking-[0.22em]'
+  ? 'text-[10px] tracking-[0.2em] md:text-[11px] md:tracking-[0.22em]'
   : {
-      sm: 'text-[10px] tracking-[0.18em]',
+      sm: 'text-[10px] tracking-[0.2em]',
       md: 'text-[11px] tracking-[0.22em]',
       lg: 'text-xs tracking-[0.22em]',
     }[size as 'sm' | 'md' | 'lg'];
 
 const wordmarkClass = isResponsive
-  ? 'text-[17px] md:text-[22px]'
-  : { sm: 'text-base', md: 'text-[22px]', lg: 'text-[26px]' }[size as 'sm' | 'md' | 'lg'];
+  ? 'text-[19px] md:text-[24px]'
+  : { sm: 'text-base', md: 'text-[22px]', lg: 'text-[28px]' }[size as 'sm' | 'md' | 'lg'];
 
-const gapClass = isResponsive ? 'gap-2.5 md:gap-3' : 'gap-3';
+const dotClass = isResponsive ? 'size-1.5 md:size-2' : 'size-1.5';
+const dotOffset = isResponsive ? 'mb-1 md:mb-1.5' : 'mb-1';
+const gapToDot = isResponsive ? 'gap-1.5 md:gap-2' : 'gap-1.5';
+const stackedGap = isResponsive ? 'mt-1.5 md:mt-2' : 'mt-1.5';
 
 const eyebrowColor = tone === 'dark' ? 'text-ink-muted' : 'text-cream-100/70';
 const wordmarkColor = tone === 'dark' ? 'text-navy-950' : 'text-cream-50';
+const dotColor = tone === 'dark' ? 'bg-gold-500' : 'bg-gold-400';
 
 const Wrapper = withLink ? 'a' : 'div';
 ---
 
 <Wrapper
   {...withLink ? { href: '/', 'aria-label': 'Baufinanzierung Bamberg – zur Startseite' } : {}}
-  class={`group inline-flex items-center ${gapClass} ${withLink ? 'transition-opacity hover:opacity-90' : ''} ${className}`}
+  class={`group inline-block ${withLink ? 'transition-opacity hover:opacity-90' : ''} ${className}`}
 >
-  <!-- Vertikaler Gold-Stick als Masthead-Element -->
-  <div
-    aria-hidden="true"
-    class={`shrink-0 rounded-full bg-gold-500 ${barClass}`}
-  >
-  </div>
-
   {variant === 'stacked' && (
     <div class="leading-none">
-      <div class={`font-body font-medium uppercase ${eyebrowClass} ${eyebrowColor}`}>
+      <div class={`font-body font-semibold uppercase ${eyebrowClass} ${eyebrowColor}`}>
         Baufinanzierung
       </div>
-      <div class={`mt-1 md:mt-1.5 font-display ${wordmarkClass} font-medium tracking-tight ${wordmarkColor}`}>
-        Bamberg
+      <div class={`${stackedGap} flex items-baseline ${gapToDot}`}>
+        <span class={`font-display ${wordmarkClass} font-semibold tracking-tight ${wordmarkColor}`}>
+          Bamberg
+        </span>
+        <span
+          aria-hidden="true"
+          class={`inline-block ${dotClass} ${dotOffset} shrink-0 rounded-full ${dotColor}`}
+        >
+        </span>
       </div>
     </div>
   )}
 
   {variant === 'inline' && (
-    <span class={`font-display ${wordmarkClass} font-medium tracking-tight ${wordmarkColor}`}>
+    <span class={`inline-flex items-baseline gap-1.5 font-display ${wordmarkClass} font-semibold tracking-tight ${wordmarkColor}`}>
       Baufinanzierung&nbsp;Bamberg
+      <span aria-hidden="true" class={`inline-block ${dotClass} ${dotOffset} shrink-0 rounded-full ${dotColor}`}></span>
     </span>
   )}
 </Wrapper>
