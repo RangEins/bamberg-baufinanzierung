@@ -114,27 +114,17 @@ export function LeadWizard() {
       setErrorMessage('');
 
       try {
-        const payload = new URLSearchParams();
-        payload.append('form-name', 'lead');
-        payload.append('vorhaben', form.vorhaben);
-        payload.append('finanzierungssumme', String(form.finanzierungssumme));
-        payload.append('eigenkapital', String(form.eigenkapital));
-        payload.append('name', form.name);
-        payload.append('email', form.email);
-        payload.append('phone', form.phone);
-        payload.append('ort', form.ort);
-        payload.append('message', form.message);
-
-        const res = await fetch('https://formsubmit.co/ajax/angebot@frankenbaufi.de', {
+        const res = await fetch('https://api.web3forms.com/submit', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
             Accept: 'application/json',
           },
           body: JSON.stringify({
-            _subject: `Neue Bamberg-Anfrage: ${form.vorhaben || 'Baufinanzierung'}`,
-            _template: 'table',
-            _captcha: 'false',
+            access_key: 'f0f845c2-cd69-43a7-9d97-2e48a5140961',
+            subject: `Neue Bamberg-Anfrage: ${form.vorhaben || 'Baufinanzierung'}`,
+            from_name: form.name || 'Baufinanzierung Bamberg Website',
+            reply_to: form.email,
             Vorhaben: form.vorhaben,
             Finanzierungssumme: formatEUR(form.finanzierungssumme),
             Eigenkapital: formatEUR(form.eigenkapital),
@@ -144,10 +134,15 @@ export function LeadWizard() {
             Ort: form.ort || '–',
             Nachricht: form.message || '–',
             Quelle: 'bamberg-baufinanzierung.de',
+            // Web3Forms-Honeypot (zusätzlich zur clientseitigen Prüfung oben)
+            botcheck: form.website,
           }),
         });
 
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json().catch(() => ({ success: false }));
+        if (!res.ok || !data.success) {
+          throw new Error(data?.message || `HTTP ${res.status}`);
+        }
         setSubmitState('success');
       } catch (err) {
         console.error('Lead submit failed', err);
@@ -438,8 +433,9 @@ export function LeadWizard() {
                       >
                         Datenschutzerklärung
                       </a>{' '}
-                      gelesen und stimme der Verarbeitung meiner Daten zur Bearbeitung meiner
-                      Anfrage zu. *
+                      gelesen und willige in die Verarbeitung meiner Daten zur Bearbeitung meiner
+                      Anfrage ein, einschließlich der Übermittlung an unseren Formulardienstleister
+                      Web3Forms (Indien) gemäß Art. 49 Abs. 1 lit. a DSGVO. *
                     </span>
                   </label>
                 </div>

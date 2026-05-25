@@ -1,6 +1,6 @@
 ---
-import { Phone, Mail, MapPin, Smartphone, ExternalLink } from '@lucide/astro';
-import { SITE, FOOTER_LINKS, SISTER_SITES } from '@/lib/content';
+import { Phone, Mail, MapPin, Smartphone } from '@lucide/astro';
+import { SITE, FOOTER_LINKS } from '@/lib/content';
 import Logo from '@/components/Logo.astro';
 import BlurOrb from '@/components/util/BlurOrb.astro';
 
@@ -110,26 +110,6 @@ const year = new Date().getFullYear();
             </li>
           ))}
         </ul>
-      </div>
-    </div>
-
-    <!-- Auch in Ihrer Region -->
-    <div class="mt-10 border-t border-cream-50/10 pt-8 md:mt-14 md:pt-10">
-      <h3 class="text-xs font-semibold uppercase tracking-wider text-gold-400">
-        Auch in Ihrer Region
-      </h3>
-      <div class="mt-5 flex flex-wrap gap-x-6 gap-y-3 text-sm">
-        {SISTER_SITES.map((site) => (
-          <a
-            href={site.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center gap-1 text-cream-100/80 transition-colors hover:text-gold-300"
-          >
-            {site.name}
-            <ExternalLink class="size-3" />
-          </a>
-        ))}
       </div>
     </div>
 

@@ -378,24 +378,6 @@ export const MIDPAGE_CTA = {
   cta: 'Jetzt unverbindlich anfragen',
 } as const;
 
-export const SISTER_SITES = [
-  {
-    name: 'Baufinanzierung Forchheim',
-    url: 'https://baufinanzierung-forchheim.de',
-    label: 'Forchheim',
-  },
-  {
-    name: 'Baufinanzierung Erlangen',
-    url: 'https://baufinanzierung-erlangen.de',
-    label: 'Erlangen',
-  },
-  {
-    name: 'Baufinanzierung Herzogenaurach',
-    url: 'https://baufinanzierung-herzogenaurach.de',
-    label: 'Herzogenaurach',
-  },
-] as const;
-
 export const FOOTER_LINKS = {
   leistungen: [
     { label: 'Immobilienfinanzierung', href: '#leistungen' },

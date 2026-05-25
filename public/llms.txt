@@ -11,7 +11,6 @@
 - **Kontakt:** altemeier@frankenbaufi.de · Telefon 09131 6238530 · Mobil 0160 7325514
 - **Antwortzeit:** persönlich innerhalb von 24 Stunden
 - **Juristische Anbieterangaben:** siehe /impressum
-- **Tech-Stack:** Astro 6.3 (statisch, deployed auf Vercel)
 
 ## Leistungen
 
