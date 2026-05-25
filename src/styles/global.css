@@ -62,6 +62,26 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+
+    /* Scroll-Padding fuer alle Anker-Links (#anfragen, #leistungen, etc.) —
+       verhindert, dass das Anker-Ziel hinter dem fixed Header landet.
+       Mobile: Header h-16 (64px) + iOS-Safe-Area (~47px) + Breathing.
+       Desktop: Header h-[76px] + Breathing. */
+    scroll-padding-top: calc(5rem + env(safe-area-inset-top, 0px));
+  }
+
+  @media (min-width: 768px) {
+    html {
+      scroll-padding-top: 6rem;
+    }
+  }
+
+  /* Respektiere reduced-motion: kein Smooth-Scroll fuer Nutzer,
+     die das in den OS-Einstellungen deaktiviert haben */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
   }
 
   body {
