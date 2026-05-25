@@ -9,18 +9,25 @@ import Logo from '@/components/Logo.astro';
   class="fixed inset-x-0 top-0 z-40 transition-all duration-300"
   data-transparent="true"
 >
-  <div class="container-content flex h-16 items-center gap-4 md:h-[76px] md:gap-6 lg:gap-8">
-    <!-- Logo (mit fester Mindestbreite — verhindert Squeeze auf engen Viewports) -->
-    <div class="logo-dark shrink-0">
-      <Logo variant="stacked" tone="dark" size="responsive" />
-    </div>
-    <div class="logo-light shrink-0">
-      <Logo variant="stacked" tone="light" size="responsive" />
+  <!--
+    Layout-Logik:
+    Mobile/Tablet: grid-cols-[auto_1fr_auto] — Logo links, Spacer, Right-Cluster rechts
+    Desktop (lg+): grid-cols-3 — drei gleich breite Spalten, Nav in der Mitte
+       => Nav sitzt exakt auf der Viewport-Mitte, unabhängig von Logo- und
+          Right-Cluster-Breite. Das ist der Grund, warum justify-between mit
+          flex-1 nicht ausreicht, wenn die Aussenspalten unterschiedlich breit sind.
+  -->
+  <div class="container-content grid h-16 items-center gap-4 grid-cols-[auto_1fr_auto] md:h-[76px] md:gap-6 lg:grid-cols-3 lg:gap-8">
+
+    <!-- Spalte 1: Logo -->
+    <div class="justify-self-start">
+      <div class="logo-dark"><Logo variant="stacked" tone="dark" size="responsive" /></div>
+      <div class="logo-light"><Logo variant="stacked" tone="light" size="responsive" /></div>
     </div>
 
-    <!-- Nav: zentriert zwischen Logo und CTA-Block, nur Desktop -->
+    <!-- Spalte 2: Nav (nur lg+, mittig im Viewport) -->
     <nav
-      class="hidden flex-1 items-center justify-center gap-6 lg:flex xl:gap-9"
+      class="hidden items-center justify-center gap-6 lg:flex lg:justify-self-center xl:gap-9"
       aria-label="Hauptnavigation"
     >
       {NAV_ITEMS.map((item) => (
@@ -33,12 +40,8 @@ import Logo from '@/components/Logo.astro';
       ))}
     </nav>
 
-    <!-- Spacer für mobile/tablet (push CTA nach rechts wenn keine Nav da) -->
-    <div class="flex-1 lg:hidden"></div>
-
-    <!-- Right cluster -->
-    <div class="flex shrink-0 items-center gap-2 md:gap-3">
-      <!-- Phone als Text nur ab xl (>=1280px), darunter Icon-Variante -->
+    <!-- Spalte 3: Phone + CTA (rechts) -->
+    <div class="flex items-center gap-2 justify-self-end md:gap-3">
       <a
         href={`tel:${SITE.phoneTel}`}
         class="hidden items-center gap-2 text-sm font-medium transition-colors xl:flex phone-link"
@@ -56,7 +59,6 @@ import Logo from '@/components/Logo.astro';
         <Phone class="size-[18px]" />
       </a>
 
-      <!-- CTA: kompakter Text auf Mobile, voller Text ab md -->
       <a
         href="#anfragen"
         class="inline-flex h-11 items-center justify-center whitespace-nowrap rounded-md bg-gold-500 px-4 text-sm font-semibold text-navy-950 shadow-sm transition-all hover:bg-gold-400 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-300 focus-visible:ring-offset-2 md:h-12 md:px-5"
@@ -65,11 +67,11 @@ import Logo from '@/components/Logo.astro';
         <span class="hidden md:inline">Beratung anfragen</span>
       </a>
     </div>
+
   </div>
 </header>
 
 <style>
-  /* Transparent (über dunklem Hero) → helle Texte und helles Logo */
   #site-header[data-transparent="true"] {
     background-color: transparent;
     backdrop-filter: none;
@@ -89,7 +91,6 @@ import Logo from '@/components/Logo.astro';
     border-color: rgb(232 199 122 / 0.5);
   }
 
-  /* Scrolled (über Cream) → dunkle Texte und dunkles Logo */
   #site-header[data-transparent="false"] {
     background-color: rgb(251 248 241 / 0.94);
     backdrop-filter: saturate(180%) blur(14px);
