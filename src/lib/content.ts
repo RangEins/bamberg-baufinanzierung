@@ -29,7 +29,7 @@ export const SITE = {
   state: 'Bayern',
 
   description:
-    'Unabhängige Baufinanzierung für Bamberg und den Landkreis Bamberg. 600+ Banken im Vergleich, 25 Jahre Erfahrung in Franken. Kostenlose Erstberatung.',
+    'Unabhängige Baufinanzierung für Bamberg und den Landkreis Bamberg. 600+ Banken im Vergleich, 15 Jahre Erfahrung in Franken. Kostenlose Erstberatung.',
 
   /** Juristische Entität – NUR Impressum/Datenschutz/Schema */
   legalEntity: {
@@ -60,7 +60,7 @@ export const HERO = {
     'Über 600 Banken im Vergleich – von der Welterbe-Altstadt bis in den Landkreis. Persönliche Antwort innerhalb von 24 Stunden.',
   trustBadges: [
     '600+ Banken im Vergleich',
-    '25 Jahre Markterfahrung',
+    '15 Jahre Markterfahrung',
     'Antwort in 24 Stunden',
   ],
   cta: 'Kostenlos Konditionen vergleichen',
@@ -74,7 +74,7 @@ export const STATS_ITEMS = [
     detail: 'Konditionen aus dem gesamten Markt',
   },
   {
-    value: '25',
+    value: '15',
     label: 'Jahre Erfahrung',
     detail: 'in Franken vor Ort',
   },
@@ -104,7 +104,7 @@ export const COMPARISON_ROWS = [
   {
     feature: 'Regionale Marktkenntnis',
     hausbank: 'Generische Bewertung',
-    us: 'Bamberg und Landkreis seit 2001',
+    us: 'Bamberg und Landkreis seit 2011',
   },
   {
     feature: 'KfW- & BAFA-Förderprüfung',
@@ -366,7 +366,7 @@ export const FAQ_ITEMS = [
   {
     question: 'Wer steht hinter dieser Beratung?',
     answer:
-      'Hinter Baufinanzierung Bamberg steht ein unabhängiger Vermittler mit 25 Jahren Markterfahrung in Franken. Sie haben einen festen Ansprechpartner über die gesamte Laufzeit – vom Erstgespräch über den Notartermin bis zur Auszahlung. Die rechtlichen Anbieterangaben finden Sie im Impressum.',
+      'Hinter Baufinanzierung Bamberg steht ein unabhängiger Vermittler mit 15 Jahren Markterfahrung in Franken. Sie haben einen festen Ansprechpartner über die gesamte Laufzeit – vom Erstgespräch über den Notartermin bis zur Auszahlung. Die rechtlichen Anbieterangaben finden Sie im Impressum.',
   },
 ] as const;
 
