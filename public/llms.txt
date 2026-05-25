@@ -1,105 +1,98 @@
 # Baufinanzierung Bamberg
 
-> Unabhängige Baufinanzierung für Bamberg und den Landkreis Bamberg. Über 600 Banken im Vergleich, kostenlos für den Kunden, 25 Jahre Marktkenntnis in Franken. Persönlicher Ansprechpartner über die gesamte Laufzeit.
+> Unabhängiger Baufinanzierungsberater für Bamberg und den Landkreis Bamberg. Vergleich von über 600 Banken, kostenlos für Kundinnen und Kunden, 25 Jahre Marktkenntnis in Franken.
 
-## Über
+Wir vermitteln Immobilienfinanzierungen, Anschlussfinanzierungen, Modernisierungskredite sowie Förderprogramme von KfW, BAFA und BayernLabo. Spezialwissen in Denkmalschutz-Objekten der Welterbe-Altstadt (§7i EStG, KfW 297/298) und Neubau-Quartieren wie dem Lagarde-Campus. Persönliche Antwort innerhalb von 24 Stunden, ein fester Ansprechpartner über die gesamte Laufzeit.
 
-- **Marke:** Baufinanzierung Bamberg
-- **Standort:** Bamberg + Landkreis Bamberg
-- **Bundesland:** Bayern (Oberfranken)
+## Hauptseite (Onepager, Anker-Navigation)
+
+- [Startseite](https://bamberg-baufinanzierung.de/): Vollständiger Onepager mit allen Sektionen
+- [Lead-Wizard](https://bamberg-baufinanzierung.de/#anfragen): 4-Schritt-Anfrageformular (Vorhaben → Summe → Eigenkapital → Kontakt)
+- [Leistungen](https://bamberg-baufinanzierung.de/#leistungen): Immobilien-, Anschluss-, Modernisierungs- und Förderfinanzierung
+- [Förderprüfung](https://bamberg-baufinanzierung.de/#foerderung): KfW, BAFA, BayernLabo sowie Denkmalschutz (§7i EStG, KfW 297/298)
+- [Marktdaten](https://bamberg-baufinanzierung.de/#marktdaten): Aktuelle Immobilienpreise Stadt und Landkreis Bamberg, Stand Mai 2026
+- [Region](https://bamberg-baufinanzierung.de/#region): Beratung in allen Landkreis-Gemeinden plus Lagarde-Campus
+- [FAQ](https://bamberg-baufinanzierung.de/#faq): Häufige Fragen zu Kosten, Antragsprozess, Förderung und Industrie-Bonität
+
+## Pflichtangaben
+
+- [Impressum](https://bamberg-baufinanzierung.de/impressum): Anbieterkennzeichnung nach § 5 TMG, Aufsicht IHK Oberfranken Bayreuth, § 34i GewO
+- [Datenschutzerklärung](https://bamberg-baufinanzierung.de/datenschutz): DSGVO/BDSG/TTDSG-konform, keine Tracking-Cookies, keine Web-Analyse
+
+## Maschinenlesbare Datenquellen
+
+- [Sitemap-Index](https://bamberg-baufinanzierung.de/sitemap-index.xml): XML-Sitemap mit allen Seiten, lastmod, changefreq, priority
+- [robots.txt](https://bamberg-baufinanzierung.de/robots.txt): Crawler-Direktiven inkl. expliziter Allow-Liste für GPTBot, ClaudeBot, PerplexityBot, Google-Extended, Applebot u.a.
+
+## Wesentliche Fakten
+
+- **Marke / Site:** Baufinanzierung Bamberg
+- **Standort:** Stadt Bamberg + Landkreis Bamberg (Bayern, Oberfranken)
 - **Domain:** bamberg-baufinanzierung.de
 - **Kontakt:** altemeier@frankenbaufi.de · Telefon 09131 6238530 · Mobil 0160 7325514
 - **Antwortzeit:** persönlich innerhalb von 24 Stunden
+- **Vergleichsbasis:** über 600 Banken
+- **Kosten Kundinnen/Kunden:** vollständig kostenfrei (provisionsfinanziert durch die kreditgebende Bank)
 - **Juristische Anbieterangaben:** siehe /impressum
-
-## Leistungen
-
-- **Immobilienfinanzierung** – Hauskauf, Wohnungskauf, Neubau
-- **Anschlussfinanzierung & Forward-Darlehen** – bis 60 Monate vor Auslauf der Zinsbindung
-- **Modernisierungskredite** – energetische Sanierung, Dachausbau, Heizungstausch
-- **KfW-/BAFA-/BayernLabo-Förderprüfung** – im Erstgespräch Standard
-- **Denkmalschutz-Finanzierung** – KfW 297/298, §7i EStG erhöhte AfA
 
 ## Marktdaten Bamberg (Stand Mai 2026)
 
 ### Stadt Bamberg
-- Häuser: ~4.150 €/m² (Spanne 2.970 – 5.280 €/m²)
-- Eigentumswohnungen: ~3.600 €/m² (Spanne 1.900 – 6.985 €/m²)
-- Gesamtdurchschnitt: ~3.690 €/m²
+- Häuser ø ~4.150 €/m² (Spanne 2.970 – 5.280)
+- Eigentumswohnungen ø ~3.600 €/m² (Spanne 1.900 – 6.985)
+- Gesamtdurchschnitt ø ~3.690 €/m²
 - Teuerster Stadtteil: Wildensorg (~3.886 €/m²)
 - Günstigster Stadtteil: Hirschknock (~3.096 €/m²)
-- Premium-Lage: Welterbe-Inselstadt, oft >5.500 €/m², viel Denkmalschutz
-- Preisentwicklung Wohnungen: +2,7 % p.a.
+- Premium-Lage: Welterbe-Inselstadt, oft >5.500 €/m², überwiegend Denkmalschutz
+- Preisentwicklung Wohnungen 2025→2026: +2,7 % p.a.
 - Mieten: Häuser 13,22 €/m², Wohnungen 13,41 €/m²
 
 ### Landkreis Bamberg
-- Hallstadt: ~3.200 €/m² (Brose-Standort)
-- Hirschaid: ~3.100 €/m² (Schaeffler-Standort, A73)
+- Hallstadt: ~3.200 €/m² (Brose-HQ)
+- Hirschaid: ~3.100 €/m² (Schaeffler/INA, A73)
 - Memmelsdorf: ~3.300 €/m² (gehobenes Wohnen, Schloss Seehof)
-- Strullendorf: ~2.900 €/m²
+- Strullendorf: ~2.900 €/m² (Familien-Region)
 - Burgebrach: ~2.500 €/m² (Thomann-HQ)
-- Scheßlitz: ~2.400 €/m²
-
-### Großarbeitgeber
-- **Stadt Bamberg:** Bosch (Power Tools), Wieland Electric, Universität Bamberg, Erzbistum Bamberg, Sparkasse Bamberg, Klinikum Bamberg
-- **Landkreis Bamberg:** Brose (Hallstadt), Schaeffler/INA (Hirschaid), Thomann (Burgebrach), Steigerwaldklinik, Juraklinik
-
-### Konversions- / Neubau-Hotspots
-- **Lagarde-Campus** (~19,4 ha, Ostbamberg) – Wohnungen, Gewerbe, Medical Valley, LAGARDE1-Gründerzentrum. Stetiger Finanzierungsbedarf bis ~2028+.
-- **Pines Housing Area** – bereits in Wohnquartier umgewandelt
-- **Offizierssiedlung** – Stadtbau Bamberg
-- **Muna** (~140 ha) – langfristiges Projekt
+- Scheßlitz: ~2.400 €/m² (Juraklinik)
 
 ## Einzugsgebiet
 
 Stadt Bamberg mit den Stadtteilen Inselstadt, Bergstadt, Wildensorg, Gartenstadt, Gaustadt, Bug, Wunderburg sowie das Konversionsgebiet Lagarde-Campus.
 
-Landkreis Bamberg (Gemeinden mit aktiver Beratung):
-Hirschaid (12.607 EW) · Hallstadt (8.888) · Memmelsdorf (8.822) · Strullendorf · Burgebrach · Scheßlitz · Stegaurach · Litzendorf · Bischberg · Oberhaid · Buttenheim · Frensdorf · Pommersfelden · Schlüsselfeld · Heiligenstadt in Oberfranken · Zapfendorf · Rattelsdorf · Baunach · Breitengüßbach · Kemmern · Gundelsheim
+Aktive Beratung in allen Landkreis-Gemeinden: Hirschaid (12.607 EW), Hallstadt (8.888), Memmelsdorf (8.822), Strullendorf, Burgebrach, Scheßlitz, Litzendorf, Bischberg, Oberhaid, Stegaurach, Buttenheim, Frensdorf, Pommersfelden, Schlüsselfeld, Heiligenstadt in Oberfranken, Zapfendorf, Rattelsdorf, Baunach, Breitengüßbach, Kemmern, Gundelsheim.
 
-Erweitertes Einzugsgebiet: weitere Gemeinden im Landkreis Bamberg sowie angrenzende Bereiche der Landkreise Forchheim, Lichtenfels, Coburg, Hassberge und Bayreuth in Oberfranken.
+Erweitertes Einzugsgebiet: angrenzende Bereiche der Landkreise Forchheim, Lichtenfels, Coburg, Hassberge und Bayreuth (Oberfranken).
 
-## Persona-Cluster
+## Zielgruppen-Cluster
 
-1. **Brose/Bosch/Schaeffler-Familien** – mittlere Einkommen, 30–45 J., Erstkäufer in Landkreis-Gemeinden
-2. **Beamten- und Akademiker-Haushalte** – Universität, Erzbistum, Verwaltung; Altbau in Innenstadt oder Gartenstadt/Wildensorg
-3. **Denkmalschutz-Käufer** – Welterbe-Inselstadt, brauchen KfW-Denkmal + §7i EStG AfA-Expertise
-4. **Lagarde-Campus-Käufer** – Neubauwohnungen, oft KfW-40, junge Familien oder Kapitalanleger
-5. **Anschlussfinanzierer** – Bestandskunden, deren 10-jährige Zinsbindung ausläuft
+- Industriearbeitnehmer der Region (Brose Hallstadt, Bosch Bamberg, Schaeffler Hirschaid, Thomann Burgebrach, Wieland Electric)
+- Beamten- und Akademiker-Haushalte (Universität Bamberg, Erzbistum, Landratsamt, Verwaltung)
+- Käufer denkmalgeschützter Objekte in der Welterbe-Altstadt und Inselstadt
+- Käufer im Neubau-Quartier Lagarde-Campus (überwiegend KfW-40-Standard)
+- Anschlussfinanzierer mit auslaufender Zinsbindung (Bestandskunden 2010er-Jahre)
 
-## Häufige Fragen (FAQ-Auszug)
+## Schwerpunkte und Spezialwissen
+
+- KfW-Programme 124 (Wohneigentum), 261 (Sanierung), 297/298 (Klimafreundlicher Neubau / Wohneigentum für Familien), 358/359 (Jung kauft Alt)
+- BAFA: Heizungstausch (bis 70 % Zuschuss), BEG EM, Wärmepumpen- und Solarthermie-Boni, Energieberatung Wohngebäude
+- BayernLabo: Baudarlehen, Modernisierungsdarlehen, Zinsverbilligungsprogramm, Sonderprogramm Denkmalschutz
+- §7i EStG: erhöhte Denkmal-AfA über 12 Jahre für Sanierung in der Bamberger Welterbe-Altstadt
+- Forward-Darlehen bis 60 Monate vor Auslauf der Zinsbindung
+- Bauträger-Modelle nach MaBV (Lagarde, Pines, Offizierssiedlung): Kaufpreisraten, Fertigstellungsbürgschaft, Grundbuch-Eintragung
+- Industrie-Bonität: korrekte Anrechnung von Schichtzulagen, Sonderzahlungen und betrieblicher Altersvorsorge bei Antragstellung
+
+## Häufige Fragen (Kerninhalt)
 
 - **Kosten:** Beratung kostenlos – Provision von der Bank, nicht vom Kunden
-- **Banken im Vergleich:** über 600
-- **Antwortzeit:** persönlich innerhalb 24 h
-- **Vorgang bis Auszahlung:** typisch 4–6 Wochen bei sauberen Unterlagen
-- **Spezialfall Denkmalschutz:** KfW 297/298 + §7i EStG; Bescheid Denkmalschutzbehörde muss vor Baubeginn vorliegen
-- **Brose/Schaeffler-Mitarbeiter:** Schichtzulagen und Betriebszugehörigkeit müssen korrekt in Bonität eingerechnet werden
+- **Vergleich:** über 600 Banken
+- **Antwortzeit:** persönlich innerhalb 24 Stunden
+- **Gesamtdauer Anfrage bis Auszahlung:** typisch 4–6 Wochen bei sauberen Unterlagen
+- **Denkmalschutz Bamberger Altstadt:** KfW 297/298 + §7i EStG; Bescheid Denkmalschutzbehörde MUSS vor Baubeginn vorliegen, sonst Förderung verwirkt
+- **Brose/Bosch/Schaeffler-Mitarbeiter:** Schichtzulagen und Betriebszugehörigkeit müssen korrekt in der Bonität abgebildet werden
+- **Lagarde-Campus & Konversionsflächen:** überwiegend KfW-40-Neubauten; Bauträger-Spezifika nach MaBV
 
-## Wichtige Sektionen / Anker auf bamberg-baufinanzierung.de
+## Optional
 
-- /#anfragen – Lead-Wizard (4 Schritte: Vorhaben, Summe, Eigenkapital, Kontakt)
-- /#vergleich – Hausbank vs. unabhängige Beratung
-- /#leistungen – Immobilienfinanzierung, Anschluss, Modernisierung, Förderung
-- /#foerderung – KfW, BAFA, BayernLabo, Denkmalschutz
-- /#marktdaten – Preistabellen Stadt und Landkreis
-- /#region – 9 Landkreis-Karten inkl. Lagarde-Campus
-- /#faq – 10 häufige Fragen
-- /impressum
-- /datenschutz
-
-## Schema / strukturierte Daten
-
-Die Seite stellt folgende strukturierte Daten bereit (JSON-LD):
-- `FinancialService` (LocalBusiness mit areaServed für Bamberg, Landkreis, Oberfranken + alle Landkreis-Gemeinden; legalName = Frankenbaufi GmbH)
-- `Service` (Baufinanzierungsvermittlung)
-- `FAQPage` (alle FAQ-Items maschinenlesbar)
-- `Organization`
-- `WebSite`
-
-## Tonalität & Marke
-
-- Sie-Form, sachlich, regional, ohne Übertreibungen
-- Zahlen statt Adjektive ("600+ Banken", nicht "viele Banken")
-- Keine konkreten Zinssätze auf der Seite (Compliance)
-- Design: Navy + Gold, Fraunces (Display) + Inter (Body), beide selbst gehostet
+- [Brand-Logo (SVG)](https://bamberg-baufinanzierung.de/logo.svg)
+- [Favicon (SVG)](https://bamberg-baufinanzierung.de/favicon.svg)
+- [Web-App-Manifest](https://bamberg-baufinanzierung.de/site.webmanifest)
