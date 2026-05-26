@@ -3,6 +3,7 @@ import { Phone, ShieldCheck, Award, Clock3 } from '@lucide/astro';
 import { SITE, HERO } from '@/lib/content';
 import { LeadWizard } from '@/components/wizard/LeadWizard';
 import BlurOrb from '@/components/util/BlurOrb.astro';
+import SocialProof from '@/components/SocialProof.astro';
 ---
 
 <section
@@ -76,10 +77,19 @@ import BlurOrb from '@/components/util/BlurOrb.astro';
           </a>
         </div>
 
+        <!-- Social Proof: Sterne-Bewertung -->
+        <div
+          data-reveal
+          data-reveal-delay="440"
+          class="mt-5 md:mt-6"
+        >
+          <SocialProof rating={4.9} total={41} tone="light" size="md" />
+        </div>
+
         <ul
           data-reveal
-          data-reveal-delay="480"
-          class="mt-5 flex flex-wrap gap-x-5 gap-y-2.5 text-[13px] text-cream-100/80 md:mt-6 md:gap-x-6 md:gap-y-3 md:text-sm"
+          data-reveal-delay="520"
+          class="mt-4 flex flex-wrap gap-x-5 gap-y-2.5 text-[13px] text-cream-100/80 md:mt-5 md:gap-x-6 md:gap-y-3 md:text-sm"
         >
           <li class="flex items-center gap-1.5 md:gap-2">
             <Award class="size-3.5 text-gold-400 md:size-4" />
