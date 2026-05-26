@@ -447,8 +447,7 @@ export function LeadWizard() {
                         Datenschutzerklärung
                       </a>{' '}
                       gelesen und willige in die Verarbeitung meiner Daten zur Bearbeitung meiner
-                      Anfrage ein, einschließlich der Übermittlung an unseren Formulardienstleister
-                      Web3Forms (Indien) gemäß Art. 49 Abs. 1 lit. a DSGVO. *
+                      Anfrage ein. *
                     </span>
                   </label>
                 </div>
